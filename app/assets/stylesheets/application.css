@@ -9,5 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ * SO BAD: require_tree .
  */
+@import 'pure-0.2.1'
