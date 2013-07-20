@@ -9,6 +9,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'sorcery', '~> 0.8.2'
+gem 'compass-rails'
+gem 'zurb-foundation', '~> 4.0.0'
+
 
 
 group :development, :test do
