@@ -20,32 +20,34 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="row">
-        <header class="small-12 columns container">
-            <div class="row">
-                <hgroup class="small-12 large-6 columns" id="header-title">
-                    <h1>MemoRabble!</h1>
-                </hgroup> 
-                <div class="small-12 large-6 columns">
-                    <ul class="button-group round even-2">
-                        <li><a href="#" class="button">Login</a></li>
-                        <li><a href="#" class="button">Sign-up</a></li>
-                    </ul>
+    <div id="main">
+        <div class="thing row">
+            <header class="small-12 columns container">
+                <div class="row">
+                    <hgroup class="small-12 large-6 columns" id="header-title">
+                        <h1>MemoRabble!</h1>
+                    </hgroup> 
+                    <div class="small-12 large-6 columns">
+                        <ul class="button-group round even-2">
+                            <li><a href="#" class="button">Login</a></li>
+                            <li><a href="#" class="button">Sign-up</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </header>
-    </div>
-    <div class="row">
-        <div class="small-12 columns">
-            <%= yield %>
+            </header>
         </div>
-    </div>
-    <div class="row">
-        <footer class="small-12 columns">
-            <p>
-                &copy; 2013 MemoRabble by  <%=  link_to "Noam Gagliardi", "http://CLUSTERfoo.com" %>, <%= link_to "@CLUSTERfoo", "http://twitter.com/CLUSTERfoo" %>
-            <p>
-        </footer>
+        <div class="row">
+            <div class="small-12 columns">
+                <%= yield %>
+            </div>
+        </div>
+        <div class="row">
+            <footer class="small-12 columns">
+                <p>
+                    &copy; 2013 MemoRabble by  <%=  link_to "Noam Gagliardi", "http://CLUSTERfoo.com" %>, <%= link_to "@CLUSTERfoo", "http://twitter.com/CLUSTERfoo" %>
+                <p>
+            </footer>
+        </div>
     </div>
     <%= javascript_include_tag "application" %>
 </body>
