@@ -1,4 +1,6 @@
 MemoRabble::Application.routes.draw do
-  root "static_pages#home"
+  root 'static_pages#home'
+  match '/about', to: 'static_pages#about', via: 'get'
+  match '/contribute', to: 'static_pages#contribute', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
 end
