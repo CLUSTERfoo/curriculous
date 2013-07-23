@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Curriculous::Application.load_tasks
+MemoRabble::Application.load_tasks

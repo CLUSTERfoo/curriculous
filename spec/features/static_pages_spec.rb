@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 describe "StaticPages" do
+  subject { page }
+
   describe "Home Page" do
-    it "should have the content 'What is this?" do
-      visit '/'
-      expect(page).to have_content('What is this?')
-    end
+    before { visit root_path }
+    it { should have_content("What is this?") }
+    it { should have_title(full_title('')) }
   end
 end

@@ -1,40 +1,9 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8" />
-
-    <!-- Uncomment to make IE8 render like IE7 -->
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
-
-    <!-- Set the viewport width to device width for mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/custom.modernizr" %>
-    <%= csrf_meta_tags %>
-</head>
+<%= render 'layouts/head' %>
 <body>
     <div id="main">
-        <div class="thing row">
-            <header class="small-12 columns container">
-                <div class="row">
-                    <hgroup class="small-12 large-6 columns" id="header-title">
-                        <h1>MemoRabble!</h1>
-                    </hgroup> 
-                    <div class="small-12 large-6 columns">
-                        <ul class="button-group round even-2">
-                            <li><a href="#" class="button">Login</a></li>
-                            <li><a href="#" class="button">Sign-up</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </header>
+        <div class="row">
+            <%= render 'layouts/header' %>
         </div>
         <div class="row">
             <div class="small-12 columns">
@@ -42,11 +11,7 @@
             </div>
         </div>
         <div class="row">
-            <footer class="small-12 columns">
-                <p>
-                    &copy; 2013 MemoRabble by  <%=  link_to "Noam Gagliardi", "http://CLUSTERfoo.com" %>, <%= link_to "@CLUSTERfoo", "http://twitter.com/CLUSTERfoo" %>
-                <p>
-            </footer>
+            <%= render 'layouts/footer' %>
         </div>
     </div>
     <%= javascript_include_tag "application" %>
