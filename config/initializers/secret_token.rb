@@ -9,7 +9,7 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-#Curriculous::Application.config.secret_key_base = '111d9d43a402efb2cf3e64597c570c3e98b8bb7391a83710722fab1f7f3c3284b0ce4aa15b78db3ab77edb3ff7eb7debd2a28ed39f5251418fe98e3f6e419630'
+#MemoRabble::Application.config.secret_key_base = '111d9d43a402efb2cf3e64597c570c3e98b8bb7391a83710722fab1f7f3c3284b0ce4aa15b78db3ab77edb3ff7eb7debd2a28ed39f5251418fe98e3f6e419630'
 require 'securerandom'
 
 def secure_token
@@ -23,4 +23,4 @@ def secure_token
   end
 end
 
-Curriculous::Application.config.secret_key_base = secure_token
+MemoRabble::Application.config.secret_key_base = secure_token
