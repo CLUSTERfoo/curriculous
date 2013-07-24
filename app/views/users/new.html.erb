@@ -1,2 +1,30 @@
 <% content_for :page_title, 'Sign up' %>
 <h1 class="subheader">Sign up</h1>
+
+<div class="row"> 
+    <div class="small-12 large-6 columns">
+        <p>
+            Join <strong>MemoRabble</strong> today. Your email is optional and 
+            will only be used in case you forget your password, or to notify you
+            of upcoming changes to our terms of use or privacy policy.
+        </p>
+    </div>
+    <div class="small-12 large-6 columns">
+        <%= form_for(@user) do |f| %>
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+
+            <%= f.label :email, "Email (optional)" %>
+            <%= f.text_field :email %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %>
+
+            <%= f.submit "Create new account", class: "button" %>
+
+        <% end %>
+    </div>
+</div>
