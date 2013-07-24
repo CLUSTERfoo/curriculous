@@ -26,6 +26,8 @@ describe "User pages" do
       it "Should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end
+
+      it "Should display errors"
     end
 
     describe "With valid information" do
@@ -39,6 +41,8 @@ describe "User pages" do
       it "Should create a new user" do
         expect { click_button submit }.to change(User, :count)
       end
+
+      it "Should flash success"
     end
   end
 end

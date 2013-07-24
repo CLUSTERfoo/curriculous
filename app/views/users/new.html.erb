@@ -11,6 +11,8 @@
     </div>
     <div class="small-12 large-6 columns">
         <%= form_for(@user) do |f| %>
+            <%= render 'shared/error_messages' %>
+
             <%= f.label :username %>
             <%= f.text_field :username %>
 

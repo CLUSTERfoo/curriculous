@@ -6,6 +6,11 @@
             <%= render 'layouts/header' %>
         </div>
         <div class="row">
+            <% if flash[:notice] %>
+                <div class="alert-box success">
+                    <%= flash[:notice] %>
+                </div>
+            <% end %>
             <div class="small-12 columns">
                 <%= yield %>
             </div>

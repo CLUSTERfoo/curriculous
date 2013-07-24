@@ -1,0 +1,12 @@
+<% if @user.errors.any? %>
+    <div id="error-explanation">
+        <div class="alert-box alert">
+            Yikes! Looks like we've got some errors:
+        </div>
+        <ul>
+            <% @user.errors.full_messages.each do |m| %>
+                <li> <%= m %>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

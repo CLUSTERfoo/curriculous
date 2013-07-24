@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # TODO: do something after new user is created
+      flash.now[:notice] = "Your account has been created, #{ @user.username }."
       render 'new'
     else
       render 'new'
