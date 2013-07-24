@@ -10,6 +10,7 @@ describe "User pages" do
   end
 
   describe "Profile page" do
+    let(:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
 
     it { should have_title(full_title(user.username)) }
