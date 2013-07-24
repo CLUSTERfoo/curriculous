@@ -6,9 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # TODO: do something after new user is created
-      flash.now[:notice] = "Your account has been created, #{ @user.username }."
-      render 'new'
+      flash[:success] = "Your account has been created, #{ @user.username }."
+      redirect_to root_path
     else
       render 'new'
     end
