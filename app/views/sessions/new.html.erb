@@ -1,2 +1,18 @@
 <% content_for :page_title, 'Sign in' %>
 <h1 class="subheader">Sign in</h1>
+
+<div class="row"> 
+    <div class="small-12 large-6 large-offset-3 columns">
+        <%= form_for :session, url: sessions_path do |f| %>
+
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+
+            <%= f.submit "Sign in", class: "button" %>
+
+        <% end %>
+    </div>
+</div>

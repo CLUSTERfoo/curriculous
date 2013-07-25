@@ -16,8 +16,8 @@ describe "Authentication" do
       let(:user) { FactoryGirl.create(:user) }
 
       before do
-        fill_in username,   with: user.username.upcase
-        fill_in password,   with: user.password
+        fill_in 'Username',   with: user.username.upcase
+        fill_in 'Password',   with: user.password
         click_button 'Sign in'
       end
 
