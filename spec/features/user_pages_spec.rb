@@ -25,9 +25,9 @@ describe "User pages" do
     describe "With invalid information" do
       it "Should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
+        page.should have_selector('div.alert')
       end
 
-      it "Should display errors"
     end
 
     describe "With valid information" do
@@ -40,9 +40,9 @@ describe "User pages" do
 
       it "Should create a new user" do
         expect { click_button submit }.to change(User, :count)
+        page.should have_css('div.success')
       end
 
-      it "Should flash success"
     end
   end
 end

@@ -6,6 +6,8 @@ describe "StaticPages" do
   describe "Home Page" do
     before { visit root_path }
     it { should have_title(full_title('')) }
+    it { should have_link('Sign in') }
+    it { should have_link('Sign up') }
   end
 
   describe "About Page" do
