@@ -14,7 +14,10 @@ describe User do
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:crypted_password) }
+  it { should respond_to(:admin) }
+
   it { should be_valid }
+  it { should_not be_admin }
 
   # username tests
 
@@ -78,6 +81,17 @@ describe User do
                         password_confirmation: "12345")
       expect(@user).to be_valid
       expect(@user2).to be_valid
+    end
+  end
+
+  # admin tests
+
+  describe "With admin attribute set to true" do
+    before do
+      @user.save!
+      @user.toggle!(:admin)
+
+      it { should be_admin }
     end
   end
 end
