@@ -3,13 +3,6 @@
 
 <div class="row"> 
     <div class="small-12 large-6 columns">
-        <p>
-            Join <strong>MemoRabble</strong> today. Your email is optional and 
-            will only be used in case you forget your password, or to notify you
-            of upcoming changes to our terms of use or privacy policy.
-        </p>
-    </div>
-    <div class="small-12 large-6 columns">
         <%= form_for(@user) do |f| %>
             <%= render 'shared/error_messages' %>
 
@@ -28,5 +21,14 @@
             <%= f.submit "Create new account", class: "button" %>
 
         <% end %>
+    </div>
+    <div class="small-12 large-6 columns panel">
+        <p>
+            Your email is optional and only for forgotten passwords and important
+            notifications regarding your account.
+        </p>
+        <p>
+            We do not send newsletters or spam of any sort.
+        </p>
     </div>
 </div>
