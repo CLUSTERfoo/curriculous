@@ -10,8 +10,13 @@
                 <dd><%= link_to 'Contribute', contribute_path %></dd>
             </dl>
             <ul class="button-group round even-2">
-                <li><%= link_to 'Sign in', signin_path, class: 'button' %></li>
-                <li><%= link_to 'Sign up', signup_path, class: 'button' %></li>
+                <% if current_user %>
+                    <li><%= link_to 'Profile', user_path(current_user.id), class: 'button' %></li>
+                    <li><%= link_to 'Sign out', :signout, method: 'delete', class: 'button' %></li>
+                <% else %>
+                    <li><%= link_to 'Sign in', signin_path, class: 'button' %></li>
+                    <li><%= link_to 'Sign up', signup_path, class: 'button' %></li>
+                <% end %>
             </ul>
         </div>
     </div>
