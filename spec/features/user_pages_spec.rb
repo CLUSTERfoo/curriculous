@@ -43,6 +43,11 @@ describe "User pages" do
         page.should have_css('div.success')
       end
 
+      it "Should log the user in" do
+        click_button submit
+        page.should have_link("Sign out")
+      end
+
     end
   end
 end

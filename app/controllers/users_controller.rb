@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Your account has been created, #{ @user.username }."
+      flash[:success] = "Your account has been created. Welcome, 
+                        #{ @user.username }!"
+      auto_login(@user)
       redirect_to root_path
     else
       render 'new'

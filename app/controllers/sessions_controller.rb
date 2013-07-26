@@ -4,8 +4,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if @user = login(params[:session][:username], params[:session][:password])
-      redirect_back_or_to(:root, success: "Welcome back")
+    # TODO: shouldn't have to specify .downcase
+    if @user = login( params[:session][:username].downcase, 
+                      params[:session][:password])
+      redirect_back_or_to(:root, success: "Welcome back!")
     else
       flash[:alert] = "Login failed."
       render 'new'
@@ -14,6 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(:root, notice: "You've logged out. Come back soon!")
+    redirect_to(:root, notice: "You've signed out. Come back soon!")
   end
 end

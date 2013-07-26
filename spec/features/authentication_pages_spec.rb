@@ -12,11 +12,11 @@ describe "Authentication" do
   describe "Signin" do
     before { visit signin_path }
     
-    describe "With valid information" do
+    describe "With valid, case-insensitive information" do
       let(:user) { FactoryGirl.create(:user) }
 
       before do
-        fill_in 'Username',   with: user.username
+        fill_in 'Username',   with: user.username.upcase
         fill_in 'Password',   with: "noampass"
         click_button 'Sign in'
       end
@@ -29,15 +29,22 @@ describe "Authentication" do
       it { should_not have_link('Sign up') }
 
       describe "User links" do
-        it "Should have a Profile link that works"
-        it "Should have a Sign out link that works"
+        it "Should have a Profile link that works" do
+          click_link "Profile"
+          page.should have_title(full_title(user.username)) 
+        end
+
+        it "Should have a Sign out link that works" do
+          click_link "Sign out"
+          page.should have_selector("div.notice", text: "signed out") 
+        end
       end
     end
 
     describe "With invalid information" do
       before { click_button "Sign in" }
       it { should have_title(full_title('Sign in')) }
-      it { should have_selector('div.alert', text: 'Login failed.') }
+      it { should have_selector('div.alert', text: "Login failed.") }
     end
   end
 end
