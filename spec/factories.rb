@@ -12,7 +12,8 @@ FactoryGirl.define do
 
   factory :memo do
     subject             "Hello world!"
-    content             "Something something really interesting content."
+    content             "Something something really interesting content.
+                          Must make it to 40 chars or it'll be invalid."
     user
   end
 end
