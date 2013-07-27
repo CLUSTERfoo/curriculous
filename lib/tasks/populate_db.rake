@@ -22,11 +22,14 @@ namespace :db do
                     admin: false)
     end
 
+    users = User.all(limit: 6)
     99.times do |n|
-      subject = "Something about #{ n }"
-      content = "Here is what I am typing #{ n }.\n Is this the second line?"
-      @noam.memos.create(subject: subject, content: content,
-                         created_at: n.hours.ago)
+      subject = Faker::Lorem.sentence(5)
+      content = Faker::Lorem.paragraph(10)
+      users.each do |user|
+        user.memos.create(subject: subject, content: content,
+                           created_at: n.hours.ago)
+      end
     end
   end
 end
