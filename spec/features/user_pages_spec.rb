@@ -11,10 +11,19 @@ describe "User pages" do
 
   describe "Profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:memo1) { FactoryGirl.create(:memo, user: user, subject: "Foo Foo", 
+                                      content: "foo" * 40) }
+    let!(:memo2) { FactoryGirl.create(:memo, user: user, subject: "Bar Bar", 
+                                      content: "bar" * 40) }
     before { visit user_path(user) }
 
     it { should have_title(full_title(user.username)) }
     it { should have_content(user.username) }
+
+    describe "Memos" do
+      it { should have_content(memo1.subject) }
+      it { should have_content(memo2.subject) }
+    end
   end
 
   describe "Signup" do
