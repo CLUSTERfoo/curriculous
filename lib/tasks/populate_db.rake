@@ -25,7 +25,8 @@ namespace :db do
     99.times do |n|
       subject = "Something about #{ n }"
       content = "Here is what I am typing #{ n }.\n Is this the second line?"
-      @noam.memos.create(subject: subject, content: content)
+      @noam.memos.create(subject: subject, content: content,
+                         created_at: n.hours.ago)
     end
   end
 end
