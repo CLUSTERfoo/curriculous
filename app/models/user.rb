@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   before_save { self.username = username.downcase }
 
+  has_many :memos
+
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   # TODO: get actual email validation.
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
