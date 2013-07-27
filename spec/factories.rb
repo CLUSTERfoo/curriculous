@@ -9,4 +9,10 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :memo do
+    subject             "Hello world!"
+    content             "Something something really interesting content."
+    user
+  end
 end
