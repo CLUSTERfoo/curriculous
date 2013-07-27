@@ -13,11 +13,12 @@ describe "Authentication" do
     before { visit signin_path }
     
     describe "With valid, case-insensitive information" do
-      let(:user) { FactoryGirl.create(:user) }
 
       before do
-        fill_in 'Username',   with: user.username.upcase
-        fill_in 'Password',   with: "noampass"
+        @user = FactoryGirl.create(:user)
+        @user_attr = FactoryGirl.build(:user)
+        fill_in 'Username',   with: @user_attr.username.upcase
+        fill_in 'Password',   with: @user_attr.password
         click_button 'Sign in'
       end
 
@@ -31,7 +32,7 @@ describe "Authentication" do
       describe "User links" do
         it "Should have a Profile link that works" do
           click_link "Profile"
-          page.should have_title(full_title(user.username)) 
+          page.should have_title(full_title(@user_attr.username)) 
         end
 
         it "Should have a Sign out link that works" do
