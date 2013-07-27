@@ -1,1 +1,13 @@
-MemoRabble!
+# MemoRabble!
+
+## TODO
+
+  * Implement basic memos.
+  * Implement tag parser.
+  * Implement tag parser --> ActiveRecord
+  * Implement relations: `continues`, `precedes`, `comment_on`, `context_to`.  
+  * Implement attributes: `date`, `place`, `person`, `org`, `tag`.
+
+## License 
+
+[MIT License](http://opensource.org/licenses/MIT)
