@@ -95,4 +95,22 @@ describe User do
       it { should be_admin }
     end
   end
+
+  # memos tests
+
+  describe "Micropost associations" do
+    before { @user.save }
+    # NOTE: Force with let! because let is lazily evaluated
+    # TODO: not sure in which order these are actually evaluated. This is hacky.
+    let!(:middle_memo) {  FactoryGirl.create(:memo, user: @user,
+                                             created_at: 3.hours.ago) }
+    let!(:newer_memo) { FactoryGirl.create(:memo, user: @user,
+                                           created_at: 1.hour.ago) }
+    let!(:older_memo) { FactoryGirl.create(:memo, user: @user,
+                                           created_at: 1.day.ago ) }
+
+    it "Should have the right memos in the right order" do
+      expect(@user.memos.to_a).to eq [newer_memo, middle_memo, older_memo]
+    end
+  end
 end
