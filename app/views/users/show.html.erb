@@ -4,9 +4,10 @@
 
 <% if @user.memos.any? %>
     <% @memos.each do |memo| %>
-        <div>
+        <div class="panel memo">
             <strong>Memo:</strong> <%= memo.subject %><br>
             <strong>Posted:</strong> <%= memo.created_at %>
         </div>
     <% end %>
+    <%= will_paginate @memos %>
 <% end %>

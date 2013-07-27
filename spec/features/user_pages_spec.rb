@@ -18,7 +18,7 @@ describe "User pages" do
     before { visit user_path(user) }
 
     it { should have_title(full_title(user.username)) }
-    it { should have_content(user.username) }
+    it { should have_content(user.username.capitalize) }
 
     describe "Memos" do
       it { should have_content(memo1.subject) }
