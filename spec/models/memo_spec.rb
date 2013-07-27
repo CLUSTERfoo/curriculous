@@ -29,7 +29,7 @@ describe Memo do
   end
 
   describe "With content that is too short" do
-    before { @memo.subject = "a" * 38 }
+    before { @memo.subject = "a" * 6 }
     it { should_not be_valid }
   end
 
