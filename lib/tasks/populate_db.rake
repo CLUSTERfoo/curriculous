@@ -6,10 +6,10 @@ namespace :db do
                   password_confirmation: "foobar",
                   admin: true)
 
-    User.create!( username: "noam",
-                  password: "noam",
-                  password_confirmation: "noam",
-                  admin: false)
+    @noam = User.create!( username: "noam",
+                        password: "noam",
+                        password_confirmation: "noam",
+                        admin: false)
 
     99.times do |n|
       name  = "user_number_#{ n+1 }"
@@ -20,6 +20,12 @@ namespace :db do
                     password: password,
                     password_confirmation: password,
                     admin: false)
+    end
+
+    99.times do |n|
+      subject = "Something about #{ n }"
+      content = "Here is what I am typing #{ n }.\n Is this the second line?"
+      @noam.memos.create(subject: subject, content: content)
     end
   end
 end
