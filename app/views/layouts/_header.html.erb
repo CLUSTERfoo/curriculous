@@ -18,11 +18,7 @@
                         <dd><strong><%= link_to 'Sign up', signup_path %></strong></dd>
                 <% end %>
             </dl>
-            <% if current_user %>
-                <%= link_to "Post a memo", "#", class: "button large success" %>
-            <% else %>
-                <%= link_to "Post a memo", signup_path, class: "button large success" %>
-            <% end %>
+            <%= link_to "Post a memo", new_memo_path, class: "button large success" %>
         </div>
     </div>
 </header>

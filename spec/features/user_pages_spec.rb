@@ -56,7 +56,6 @@ describe "User pages" do
         click_button submit
         page.should have_link("Sign out")
       end
-
     end
   end
 end

@@ -48,15 +48,4 @@ describe "Authentication" do
       it { should have_selector('div.alert', text: "Login failed.") }
     end
   end
-
-  describe "Authorization" do
-    describe "For non sogned-in users" do
-      describe "In the memo controller" do
-        describe "Submitting to the create action" do
-          before { post memos_path }
-          specify { expect(responce).to redirect_to(signin_path) }
-        end
-      end
-    end
-  end
 end

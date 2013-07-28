@@ -1,7 +1,7 @@
 MemoRabble::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :memos, only: [:create]
+  resources :memos
 
   match '/signup', to: 'users#new', via: 'get'
 
