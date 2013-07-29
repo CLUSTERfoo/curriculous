@@ -1,0 +1,31 @@
+<% content_for :page_title, 'New memo' %>
+<h1 class="subheader">New memo</h1>
+
+<div class="row"> 
+    <div class="small-6 push-3 columns">
+        <%= form_for(@memo) do |f| %>
+            
+            <% if @memo.errors.any? %>
+                <div id="error-explanation">
+                    <div class="alert-box alert">
+                        Yikes! Looks like we've got some errors:
+                    </div>
+                    <ul>
+                        <% @memo.errors.full_messages.each do |m| %>
+                            <li> <%= m %>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+            
+            <%= f.label :subject %>
+            <%= f.text_field :subject %>
+
+            <%= f.label :content %>
+            <%= f.text_area :content %>
+
+            <%= f.submit "Post memo", class: "button" %>
+
+        <% end %>
+    </div>
+</div>

@@ -10,10 +10,7 @@ describe "StaticPages" do
     it { should have_link('Sign up') }
     it { should have_link('Post a memo') }
     
-    describe "When unsigned user tries to create memo" do
-      before { click_link('Post a memo') }
-      it { should have_title(full_title('Sign up')) }
-    end
+    it "When unsigned user tries to create memo"
   end
 
   describe "About Page" do
