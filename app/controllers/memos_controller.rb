@@ -1,5 +1,5 @@
 class MemosController < ApplicationController
-  before_action :require_login, only: [:create]
+  before_action :require_login, only: [:new, :create]
 
   def new
     @memo = Memo.new
