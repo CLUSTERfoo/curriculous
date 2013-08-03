@@ -23,12 +23,22 @@ namespace :db do
     end
 
     users = User.all(limit: 6)
-    99.times do |n|
-      subject = Faker::Lorem.sentence(5)
-      content = Faker::Lorem.paragraph(10)
+    25.times do |n|
       users.each do |user|
+        subject = Faker::Lorem.sentence(5)
+        content = Faker::Lorem.paragraph(10)
         user.memos.create(subject: subject, content: content,
-                           created_at: n.hours.ago)
+                           created_at: n.minutes.ago)
+      end
+    end
+
+    25.times do |n|
+      n = n * 10
+      users.each do |user|
+        subject = Faker::Lorem.sentence(5)
+        content = Faker::Lorem.paragraph(10)
+        user.memos.create(subject: subject, content: content,
+                           created_at: n.weeks.ago)
       end
     end
   end
