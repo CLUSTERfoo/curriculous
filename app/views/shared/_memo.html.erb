@@ -1,10 +1,10 @@
 <div class="panel memo">
     <div class="memo-headers">
         <span class="memo-header">Subject: </span><%= memo.subject %><br>
-        <span class="memo-header">From: </span><%= memo.user.username %><br>
-        <span class="memo-header">Memo ID: </span><%= memo.id.to_s(36).upcase %><br> 
+        <span class="memo-header">From: </span><%= link_to "#{ memo.user.username }", user_path(memo.user.id) %><br>
+        <span class="memo-header">Memo ID: </span><%= link_to "#{ memo.id.to_s(36).upcase }", memo_path(memo.id) %><br> 
         <span class="memo-header">Posted <%= time_ago_in_words(memo.created_at) %> ago: </span>
-        <%= memo.created_at.strftime("%A, %B %d, %Y") %> 
+            <%= memo.created_at.strftime("%A, %B %d, %Y") %> 
     </div>
 
     <%= simple_format(memo.content) %>
