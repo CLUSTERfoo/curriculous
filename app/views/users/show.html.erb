@@ -4,10 +4,7 @@
 
 <% if @user.memos.any? %>
     <% @memos.each do |memo| %>
-        <div class="panel memo">
-            <strong>Memo:</strong> <%= memo.subject %><br>
-            <strong>Posted:</strong> <%= memo.created_at %>
-        </div>
+        <%= render partial: "shared/memo", locals: { memo: memo } %>
     <% end %>
     <%= will_paginate @memos %>
 <% end %>

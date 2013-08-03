@@ -1,1 +1,9 @@
 <h1 class="subheader">Latest Memos:</h1>
+
+<% if @memos.any? %>
+    <% @memos.each do |memo| %>
+        <%= render partial: "shared/memo", locals: { memo: memo } %>
+    <% end %>
+    <%= will_paginate @memos %>
+<% end %>
+
