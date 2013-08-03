@@ -1,8 +1,7 @@
 require 'spec_helper'
 
-describe "Memo pages" do
+describe "Creating memos as a user" do
   subject { page }
-
 
   describe "New memo" do
 
@@ -41,14 +40,5 @@ describe "Memo pages" do
       end
     end
 
-    describe "Memo page" do
-      let!(:memo) { FactoryGirl.create(:memo, user: user, subject: "Foo Foo", 
-                                        content: "foo" * 40) }
-      before { visit memo_path(memo) }
-
-      it { should have_title(full_title(memo.subject)) }
-      it { should have_content(memo.subject) }
-      it { should have_content(memo.content) }
-    end
   end
 end
