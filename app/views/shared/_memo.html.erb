@@ -1,5 +1,5 @@
-<div class="panel memo">
-    <div class="memo-headers">
+<div class="memo">
+    <div class="memo-headers panel">
         <span class="memo-header">Subject: </span><%= memo.subject %><br>
         <span class="memo-header">From: </span><%= link_to "#{ memo.user.username }", user_path(memo.user.id) %><br>
         <span class="memo-header">Memo ID: </span><%= link_to "#{ memo.id.to_s(36).upcase }", memo_path(memo.id) %><br> 
@@ -7,5 +7,7 @@
             <%= memo.created_at.strftime("%A, %B %d, %Y") %> 
     </div>
 
-    <%= simple_format(memo.content) %>
+    <div class="memo-content">
+        <%= simple_format(memo.content) %>
+    </div>
 </div>
