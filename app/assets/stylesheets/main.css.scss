@@ -1,9 +1,22 @@
+// Google font:
+@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+
 
 // main objects
 #main {
   padding-top: 1em;
 }
 
+.subheader { font-family: arial; }
+
 // special objects
+.memo {
+  padding: $panel-padding;
+}
 .memo-header { font-weight: bold; }
+.memo-headers {
+  padding: $panel-padding; 
+  margin-bottom: $paragraph-margin-bottom;
+  
+}
 

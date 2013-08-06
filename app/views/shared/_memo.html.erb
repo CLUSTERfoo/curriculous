@@ -1,5 +1,5 @@
 <div class="memo">
-    <div class="memo-headers panel">
+    <div class="memo-headers">
         <span class="memo-header">Subject: </span><%= memo.subject %><br>
         <span class="memo-header">From: </span><%= link_to "#{ memo.user.username }", user_path(memo.user.id) %><br>
         <span class="memo-header">Memo ID: </span><%= link_to "#{ memo.id.to_s(36).upcase }", memo_path(memo.id) %><br> 

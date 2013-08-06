@@ -18,7 +18,7 @@ describe "Browsing site as unsigned user" do
     before { visit root_path }
     it { should have_title(full_title('')) }
     it { should have_link('Post a memo') }
-    it { should have_selector("div.memo") }
+    it { should have_selector("div.memo-headers") }
   end
 
   describe "About Page" do
