@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130727165343) do
+ActiveRecord::Schema.define(version: 20130806161248) do
+
+  create_table "memo_relationships", force: true do |t|
+    t.integer "parent_memo_id", null: false
+    t.integer "child_memo_id",  null: false
+  end
+
+  add_index "memo_relationships", ["child_memo_id"], name: "index_memo_relationships_on_child_memo_id", using: :btree
+  add_index "memo_relationships", ["parent_memo_id"], name: "index_memo_relationships_on_parent_memo_id", using: :btree
 
   create_table "memos", force: true do |t|
     t.string   "subject"
