@@ -38,19 +38,16 @@ describe MemoRelationship do
     end
 
     it "Creates a new relationship" do
-      pending "..."
       expect { @child.save }.to change(MemoRelationship, :count) 
     end
 
     it "Creates a new child relationship" do
-      pending "..."
       expect { @child.save }.to change(@parent.child_memos, :count) 
     end
 
     specify "Child responds to parent" do
-      pending "..."
-      before { @child.save }
-      expect { @child.parent_memos.find(@parent.id).subject }.to == @parent.subject
+      @child.save
+      expect(@child.parent_memos.find(@parent.id).subject).to eq(@parent.subject)
     end
   end
 end
