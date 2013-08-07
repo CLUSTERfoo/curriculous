@@ -20,18 +20,22 @@ class Memo < ActiveRecord::Base
 
   private
    
-    def create_reationships
-      hash = MemoParser.to_hash(content)
-      puts "BEFORE IF:::::::"
-      if hash.has_key?(:relationships)
-        hash[:relationships][:memo].each do |id|
-          puts "ID ::::::::"
-          puts id
-          parent = Memo.find(id.to_i(36))
-          puts "PARENT:::::"
-          puts parent
-          parent_memos << parent
-        end
-      end
+  def create_reationships
+    defaults = {
+      relationships: {
+        memo: [],
+        error: [],
+        user: []
+      },
+      tags: {
+        tag: []
+      }
+    }
+    hash = MemoParser.to_hash(content)
+    hash = defaults.merge(hash)
+    hash[:relationships][:memo].each do |id|
+      parent = Memo.find(id.to_i(36))
+      parent_memos << parent
     end
+  end
 end
