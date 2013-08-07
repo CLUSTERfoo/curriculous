@@ -8,6 +8,6 @@
     </div>
 
     <div class="memo-content">
-        <%= simple_format(memo.content) %>
+        <%= raw simple_format(memo.content).gsub(/@([a-z0-9A-Z]+)/, '<a  data-remote="true" class="marker" href="/memos/\1">@\1</a>')%>
     </div>
 </div>

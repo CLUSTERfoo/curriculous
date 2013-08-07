@@ -20,6 +20,9 @@ class MemosController < ApplicationController
 
   def show
     @memo = Memo.find(params[:id])
+    if request.xhr?
+      render partial: "shared/memo", locals: { memo: @memo } 
+    end
   end
 
   private

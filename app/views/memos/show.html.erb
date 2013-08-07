@@ -1,3 +1,5 @@
 <% content_for :page_title, @memo.subject %>
 
-<%= render partial: "shared/memo", locals: { memo: @memo } %>
+<div class="memos-container">
+    <%= render partial: "shared/memo", locals: { memo: @memo } %>
+</div>
