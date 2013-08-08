@@ -1,5 +1,6 @@
 $(function() {
-    $(".marker").on("ajax:success", function(e, content){
-        $(".memos-container").append(content) 
+    $(document).ajaxSuccess(function(e, content){
+        console.log(content.responseText)
+        $(".memos-container").append(content.responseText);
     });
 })
