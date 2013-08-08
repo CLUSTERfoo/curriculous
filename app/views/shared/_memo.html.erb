@@ -1,4 +1,4 @@
-<div class="memo">
+<div class="memo memo-full">
     <div class="memo-headers" id="memo-<%= memo.id.to_s(36) %>">
         <span class="memo-header">Subject: </span><%= memo.subject %><br>
         <span class="memo-header">From: </span><%= link_to "#{ memo.user.username }", user_path(memo.user.id) %><br>
@@ -8,6 +8,7 @@
     </div>
 
     <div class="memo-content">
-        <%= raw simple_format(memo.content).gsub(/@([a-z0-9A-Z]+)/, '<a  data-remote="true" class="marker" href="/memos/\1">@\1</a>')%>
+        <%= raw simple_format(memo.content).gsub(/@([a-z0-9A-Z]+)/,  
+            '<a  data-remote="true" class="marker" href="/memos/\1">@\1</a>')%>
     </div>
 </div>

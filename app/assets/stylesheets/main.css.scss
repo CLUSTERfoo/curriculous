@@ -1,26 +1,48 @@
 // Google font:
 @import url(http://fonts.googleapis.com/css?family=Special+Elite);
 
+.row { width: 100%; max-width: 100%; }
 
-// main objects
+// layout obejcts
 #main {
   padding-top: 1em;
 }
-
+#logo { a { color: #000; } }
 .subheader { font-family: arial; }
-
-// special objects
-.memo {
-  padding: $panel-padding;
-  &:nth-child(even) { background: #eee; }
+footer {
+  margin-top: $panel-padding;
 }
-.memo-min {
-  &:nth-child(even) { background: #eee }
+
+// Basic Memo Styling
+$memo-border-radius: 0px;
+$memo-border-color: #DDD;
+.memo {
+  border: 1px solid $memo-border-color;
+  border-radius: $memo-border-radius;
+  margin: $panel-padding;
+  &:nth-child(even) { background: #C7D0DD }
 }
 .memo-header { font-weight: bold; }
 .memo-headers {
   padding: $panel-padding; 
   margin-bottom: $paragraph-margin-bottom;
-  
 }
 
+// Special memo stylings
+.main-memo {
+  border-radius: $memo-border-radius;
+  border: 4px solid $memo-border-color;
+  margin: $panel-padding;
+  .memo { 
+    margin: 0px; 
+    border: none;
+  }
+}
+.memo-full {
+  padding: $panel-padding;
+}
+.memo-min {
+  .memo-headers { margin-bottom: 0px; }
+}
+
+#main-post-button { float: right; }
