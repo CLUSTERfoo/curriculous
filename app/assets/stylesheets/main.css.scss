@@ -12,6 +12,10 @@
 // special objects
 .memo {
   padding: $panel-padding;
+  &:nth-child(even) { background: #eee; }
+}
+.memo-min {
+  &:nth-child(even) { background: #eee }
 }
 .memo-header { font-weight: bold; }
 .memo-headers {
