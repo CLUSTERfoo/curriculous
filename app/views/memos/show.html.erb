@@ -4,6 +4,8 @@
     <div id="parent-memo">
     </div>
     <div class="main-memo">
-        <%= render partial: "shared/memo", locals: { memo: @memo } %>
+        <%= render partial: "shared/memo", locals: { memo: @memo, ajax: true } %>
     </div>
 </div>
+
+

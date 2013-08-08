@@ -1,5 +1,6 @@
+<% ajax ||= false %>
 <div class="memo memo-full">
-    <div class="memo-headers" id="memo-<%= memo.token %>">
+    <div class="memo-headers" data-memo-id="<%= memo.token %>">
         <span class="memo-header">Subject: </span><%= memo.subject %><br>
         <span class="memo-header">From: </span><%= link_to "#{ memo.user.username }", user_path(memo.user.id) %><br>
         <span class="memo-header">Memo ID: </span><%= link_to "#{ memo.token }", memo_path(memo.token) %><br> 
@@ -8,7 +9,17 @@
     </div>
 
     <div class="memo-content">
-        <%= raw simple_format(memo.content).gsub(/@([a-z0-9A-Z]+)/,  
-            '<a  data-remote="true" class="marker" href="/memos/\1">@\1</a>')%>
+        <%= memo_content(memo.content, remote: ajax) %>
     </div>
+
+    <% if memo.child_memos.any? %>
+        <div class="memo-headers">
+            <span><%= "This memo is referenced #{ memo.child_memos.count } times:" %> 
+                <% memo.child_memos.each do |child| %>
+                    <%= link_to child.token, memo_path(child.token), remote: ajax %>, 
+                <% end %>
+            </span>
+        </div>
+    <% end %>
+
 </div>

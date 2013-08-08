@@ -20,8 +20,9 @@ class MemosController < ApplicationController
 
   def show
     @memo = Memo.find_by_token(params[:token])
-    if request.xhr?
-      render partial: "shared/memo", locals: { memo: @memo } 
+    respond_to do |format|
+      format.html
+      format.js {}
     end
   end
 
