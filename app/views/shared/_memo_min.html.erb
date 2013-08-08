@@ -1,4 +1,4 @@
-<div class="memo-min">
+<div class="memo-min" id="memo-min-<%= memo.id.to_s(36) %>">
     <div class="memo-headers">
         <span class="memo-header"><%= memo.id.to_s(36).upcase %>: </span>
         <%= link_to "#{ memo.subject }", memo_path(memo.id) %><br>
