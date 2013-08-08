@@ -33,7 +33,7 @@ describe MemoRelationship do
     before do
       @child = user.memos.build(subject: "Child Memo", 
                               content: "#{ 'a ' * 40 } 
-                                        @#{ @parent.id.to_s(36) }",
+                                        @#{ @parent.token }",
                               user_id: user.id)
     end
 

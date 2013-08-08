@@ -38,7 +38,10 @@ describe "Creating memos as a user" do
         page.should have_css('div.success')
         page.should have_title(full_title("Hello this is title"))
       end
-    end
 
+      it "Should redirect to memo page"
+        pending("Write this test, ya lazy bum!")
+      end
+    end
   end
 end

@@ -1,7 +1,7 @@
-<div class="memo memo-min" id="memo-min-<%= memo.id.to_s(36) %>">
+<div class="memo memo-min" id="memo-min-<%= memo.token %>">
     <div class="memo-headers">
-        <span class="memo-header"><%= memo.id.to_s(36).upcase %>: </span>
-        <%= link_to "#{ memo.subject }", memo_path(memo.id) %><br>
+        <span class="memo-header"><%= memo.token %>: </span>
+        <%= link_to "#{ memo.subject }", memo_path(memo.token) %><br>
         <span class="memo-header">Posted <%= time_ago_in_words(memo.created_at) %> ago: </span>
             <%= memo.created_at.strftime("%A, %B %d, %Y") %><br>
         <span class="memo-header">By: </span><%= link_to "#{ memo.user.username }", user_path(memo.user.id) %>

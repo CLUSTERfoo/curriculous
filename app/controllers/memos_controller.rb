@@ -9,7 +9,7 @@ class MemosController < ApplicationController
     @memo = current_user.memos.build(memo_params)
     if @memo.save
       flash[:success] = "Your memo has been posted!"
-      redirect_to memo_path(@memo)
+      redirect_to memo_path(@memo.token)
     else
       render 'new'
     end
@@ -19,7 +19,7 @@ class MemosController < ApplicationController
   end
 
   def show
-    @memo = Memo.find(params[:id])
+    @memo = Memo.find_by_token(params[:token])
     if request.xhr?
       render partial: "shared/memo", locals: { memo: @memo } 
     end

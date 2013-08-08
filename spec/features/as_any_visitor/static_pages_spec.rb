@@ -27,7 +27,7 @@ describe "Browsing site as unsigned user" do
   end 
 
   describe "Memo page" do
-    before { visit memo_path(@memo) }
+    before { visit memo_path(@memo.token) }
 
     it { should have_title(full_title(@memo.subject)) }
     it { should have_content(@memo.subject) }

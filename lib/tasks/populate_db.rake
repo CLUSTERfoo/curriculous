@@ -23,7 +23,7 @@ namespace :db do
     end
 
     users = User.all(limit: 6)
-    25.times do |n|
+    5.times do |n|
       users.each do |user|
         subject = Faker::Lorem.sentence(5)
         content = Faker::Lorem.paragraph(10)
@@ -32,7 +32,7 @@ namespace :db do
       end
     end
 
-    25.times do |n|
+    5.times do |n|
       n = n * 10
       users.each do |user|
         subject = Faker::Lorem.sentence(5)

@@ -1,4 +1,6 @@
 class Memo < ActiveRecord::Base
+  attr_reader :token
+
   belongs_to :user
   before_save :create_reationships
 
@@ -18,6 +20,15 @@ class Memo < ActiveRecord::Base
   validates :subject, presence: true, length: 7..140
   validates :user_id, presence: true
 
+  # make base 36 token for readability
+  def self.find_by_token(token)
+    find(token.to_i(36))
+  end
+
+  def token
+    id.to_s(36).upcase
+  end
+
   private
    
   def create_reationships
@@ -25,8 +36,8 @@ class Memo < ActiveRecord::Base
     defaults.each {|k, v| defaults[k] = v.inject({}){|h, k| h[k] = []; h } } 
     hash = MemoParser.to_hash(content)
     hash = defaults.merge(hash)
-    hash[:relationships][:memo].each do |id|
-      parent = Memo.find(id.to_i(36))
+    hash[:relationships][:memo].each do |token|
+      parent = Memo.find_by_token(token)
       parent_memos << parent
     end
   end
