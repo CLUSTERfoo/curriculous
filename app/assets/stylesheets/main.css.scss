@@ -1,26 +1,36 @@
 // Google font:
 @import url(http://fonts.googleapis.com/css?family=Special+Elite);
 
-.row { width: 100%; max-width: 100%; }
+/******************************************************************************
+** Header && Footer
+*******************************************************************************/
 
-// layout obejcts
-#main {
-  padding-top: 1em;
-}
 #logo { a { color: #000; } }
 .subheader { font-family: arial; }
+#mini-nav {
+  float: right;
+}
+#main-post-button { 
+  float: right; 
+  clear: both;
+}
+
 footer {
   margin-top: $panel-padding;
 }
+
+/******************************************************************************
+** Memos
+*******************************************************************************/
 
 // Basic Memo Styling
 $memo-border-radius: 0px;
 $memo-border-color: #DDD;
 .memo {
-  border: 1px solid $memo-border-color;
+  border-bottom: 1px solid $memo-border-color;
   border-radius: $memo-border-radius;
   margin: $panel-padding;
-  &:nth-child(even) { background: #C7D0DD }
+  //&:nth-child(even) { background: #DBCBFF }
 }
 .memo-header { font-weight: bold; }
 .memo-headers {
@@ -42,7 +52,17 @@ $memo-border-color: #DDD;
   padding: $panel-padding;
 }
 .memo-min {
-  .memo-headers { margin-bottom: 0px; }
+  margin: 0px;
+  overflow: hidden;
+  .memo-identifier {
+    color: $small-font-color;
+    padding: $panel-padding;
+    float: left;
+    span { font-size: $small-font-size; }
+  }
+  .memo-headers { 
+    float: left;
+    margin-bottom: 0px; 
+  }
 }
 
-#main-post-button { float: right; }
