@@ -1,6 +1,8 @@
 <% content_for :page_title, @memo.subject %>
 
 <div class="memos-container">
+    <div id="parent-memo">
+    </div>
     <div class="main-memo">
         <%= render partial: "shared/memo", locals: { memo: @memo } %>
     </div>
