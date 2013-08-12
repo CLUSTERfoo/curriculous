@@ -1,0 +1,29 @@
+<% ajax ||= false %>
+<%= form_for(memo, remote: ajax) do |f| %>
+    <% if ajax %>
+        <h3 class="subheader">Reply:</h3>
+        <hr>
+    <% end %>
+
+    <% if memo.errors.any? %>
+        <div id="error-explanation">
+            <div class="alert-box alert">
+                Yikes! Looks like we've got some errors:
+            </div>
+            <ul>
+                <% memo.errors.full_messages.each do |m| %>
+                    <li> <%= m %>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+    <%= f.submit "Post memo", class: "mr-button round small" %>
+
+<% end %>

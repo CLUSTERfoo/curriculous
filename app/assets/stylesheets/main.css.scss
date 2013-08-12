@@ -1,6 +1,7 @@
 // Google font:
 @import url(http://fonts.googleapis.com/css?family=Special+Elite);
 
+
 /******************************************************************************
 ** Header && Footer
 *******************************************************************************/
@@ -25,6 +26,15 @@ footer {
 
 .small { font-size: $small-font-size; }
 
+.mr-button {
+  $bg: #FFF;
+  $radius: $global-radius;
+  $is-input: false;
+  @include button-base;
+  @include button-style($bg, $radius);
+  @include button-size;
+}
+
 /******************************************************************************
 ** Memos
 *******************************************************************************/
@@ -33,31 +43,8 @@ footer {
 $memo-border-radius: 0px;
 $memo-border-color: #DDD;
 .memo {
-  border-bottom: 1px solid $memo-border-color;
-  border-radius: $memo-border-radius;
-  margin: $panel-padding;
-  //&:nth-child(even) { background: #DBCBFF }
-}
-.memo-header { font-weight: bold; }
-.memo-headers {
-  padding: $panel-padding; 
-  margin-bottom: $paragraph-margin-bottom;
-}
-
-// Special memo stylings
-.main-memo {
-  border-radius: $memo-border-radius;
-  border: 4px solid $memo-border-color;
-  margin: $panel-padding;
-  .memo { 
-    margin: 0px; 
-    border: none;
-  }
-}
-.memo-full {
-  padding: $panel-padding;
-}
-.memo-min {
+  @include panel;
+  background: #FFF;
   margin: 0px;
   overflow: hidden;
   .memo-identifier {
@@ -66,10 +53,23 @@ $memo-border-color: #DDD;
     float: left;
     span { font-size: $small-font-size; }
   }
-  .memo-headers { 
+  .memo-wrapper { 
     float: left;
     margin-bottom: 0px; 
-    .memo-title { font-size: $h5-font-size; font-weight: bold; }
   }
+  border-radius: $memo-border-radius;
+}
+.memo-header {
+  padding: $panel-padding; 
+  margin-bottom: $paragraph-margin-bottom;
+  .memo-title { font-size: $h5-font-size; font-weight: bold; }
 }
 
+// Special memo stylings
+.main-memo {
+  .memo { background: $panel-bg }
+}
+
+.memo-full {
+  padding-bottom: $paragraph-margin-bottom;
+}

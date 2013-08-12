@@ -1,6 +1,7 @@
 <% content_for :page_title, @user.username %>
 
-<h2 class="subheader"><%= @user.username.capitalize %></h2>
+<h3 class="subheader"><%= @user.username.capitalize %></h3>
+<hr>
 
 <% if @user.memos.any? %>
     <% @memos.each do |memo| %>

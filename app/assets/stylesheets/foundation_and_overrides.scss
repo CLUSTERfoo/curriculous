@@ -1,5 +1,6 @@
 // Required global settings and mixins for Foundation
 //@import "foundation/foundation-global";
+@import "foundation/variables";
 
 // Settings file to override Foundation variables
 
@@ -116,7 +117,7 @@ $header-font-family: "Special Elite", Arial, sans-serif;
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: normal;
-// $paragraph-font-size: 1em;
+$paragraph-font-size: emCalc(13px);
 // $paragraph-line-height: 1.6;
 // $paragraph-margin-bottom: emCalc(20px);
 // $paragraph-aside-font-size: emCalc(14px);

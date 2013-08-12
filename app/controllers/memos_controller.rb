@@ -3,13 +3,22 @@ class MemosController < ApplicationController
 
   def new
     @memo = Memo.new
+    respond_to do |format|
+      format.html
+      format.js {}
+    end
   end
 
   def create
     @memo = current_user.memos.build(memo_params)
     if @memo.save
-      flash[:success] = "Your memo has been posted!"
-      redirect_to memo_path(@memo.token)
+      respond_to do |format|
+        format.html do 
+          flash[:success] = "Your memo has been posted!"
+          redirect_to memo_path(@memo.token)
+        end
+        format.js
+      end
     else
       render 'new'
     end
@@ -20,6 +29,7 @@ class MemosController < ApplicationController
 
   def show
     @memo = Memo.find_by_token(params[:token])
+    @reply = Memo.new
     respond_to do |format|
       format.html
       format.js {}

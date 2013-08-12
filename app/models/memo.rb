@@ -16,7 +16,7 @@ class Memo < ActiveRecord::Base
 
   default_scope -> { order 'created_at DESC' }
   
-  validates :content, presence: true, length: { minimum: 40 }
+  validates :content, presence: true, length: { minimum: 7 }
   validates :subject, presence: true, length: 7..140
   validates :user_id, presence: true
 
@@ -32,7 +32,7 @@ class Memo < ActiveRecord::Base
   private
    
   def create_reationships
-    defaults = {relationships: %i(memo error user), tags: %i(tag)}
+    defaults = { relationships: %i(memo error user), tags: %i(tag) }
     defaults.each {|k, v| defaults[k] = v.inject({}){|h, k| h[k] = []; h } } 
     hash = MemoParser.to_hash(content)
     hash = defaults.merge(hash)

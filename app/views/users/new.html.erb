@@ -1,5 +1,6 @@
 <% content_for :page_title, 'Sign up' %>
-<h2 class="subheader">Sign up</h2>
+<h3 class="subheader">Sign up</h3>
+<hr>
 
 <p>
     Already a member? <%= link_to "Sign in here", signin_path %>.
@@ -22,7 +23,7 @@
             <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation %>
 
-            <%= f.submit "Create new account", class: "button round small" %>
+            <%= f.submit "Create new account", class: "mr-button round small" %>
 
         <% end %>
     </div>

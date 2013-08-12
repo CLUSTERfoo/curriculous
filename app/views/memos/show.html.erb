@@ -1,10 +1,23 @@
 <% content_for :page_title, @memo.subject %>
 
 <div class="memos-container">
-    <div id="parent-memo">
-    </div>
     <div class="main-memo">
         <%= render partial: "shared/memo", locals: { memo: @memo, ajax: true } %>
+    </div>
+    <div id="memo-reply">
+    </div>
+    <div id="memo-replies">
+        <h3 class="subheader">Replies:</h3>
+        <hr>
+        <div id="parent-memo">
+        </div>
+        <% if @memo.child_memos.any? %>
+            <% @memo.child_memos.each do |child| %>
+                <%= render partial: "shared/memo", locals: { memo: child, ajax: true } %>
+            <% end %>
+        <% else %>
+            <p>No replies yet...</p>
+        <% end %>
     </div>
 </div>
 

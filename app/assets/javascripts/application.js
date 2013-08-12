@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require scroll_to
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require foundation
