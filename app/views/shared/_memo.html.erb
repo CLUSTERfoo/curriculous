@@ -1,31 +1,38 @@
 <% ajax ||= false %>
 <div class="memo memo-full">
-    <div class="memo-headers" data-memo-id="<%= memo.token %>">
-        <span class="memo-header">Subject: </span><%= memo.subject %><br>
-        <span class="memo-header">From: </span><%= link_to "#{ memo.user.username }", user_path(memo.user.id) %><br>
-        <span class="memo-header">Memo ID: </span><%= link_to "#{ memo.token }", memo_path(memo.token) %><br> 
-        <span class="memo-header">Posted <%= time_ago_in_words(memo.created_at) %> ago: </span>
-            <%= memo.created_at.strftime("%A, %B %d, %Y") %> 
+    <div class="memo-identifier">
+        <span class="small">Memo ID:</span><br>
+        @<%= memo.token %>
     </div>
 
-    <div class="memo-content">
-        <%= memo_content(memo.content, remote: ajax) %>
-    </div>
-    
-    <hr>
+    <div class="memo-wrapper">
+        <div class="memo-header" data-memo-id="<%= memo.token %>">
+            <div class="memo-title"><%= link_to "#{ memo.subject }", memo_path(memo.token) %></div><br>
+        </div>
 
-    <% if memo.child_memos.any? %>
-        <span class="small"><%= "#{ memo.child_memos.count } replies:" %> 
-            <% memo.child_memos.each do |child| %>
-                @<%= link_to child.token, memo_path(child.token), remote: ajax %> 
+        <div class="memo-content">
+            <!-- TODO: remote: ajax -->
+            <%= memo_content(memo.content, remote: false) %>
+        </div>
+        
+        <hr>
+
+        <div class="memo-footer">
+            <span class="small"><%= memo.created_at.strftime("%A, %B %d, %Y") %> 
+                (<%= time_ago_in_words(memo.created_at) %> ago)<br></span>
+            <span class="small">User: <%= link_to "#{ memo.user.username }", 
+                user_path(memo.user.id) %> | </span>    
+
+            <% if memo.child_memos.any? %>
+                <span class="small"><%= "#{ memo.child_memos.count } replies" %> | </span> 
+            <% else %>
+                <span class="small">0 replies | </span>
             <% end %>
-         | </span> 
-    <% else %>
-        <span class="small">0 replies | </span>
-    <% end %>
 
-    <% if current_user %>
-        <%= link_to "Reply", new_memo_path(memo_token: memo.token), remote: ajax, 
-            class: "small" %>
-    <% end %>
+            <% if current_user %>
+                <%= link_to "Reply", new_memo_path(memo_token: memo.token), remote: ajax, 
+                    class: "small" %>
+            <% end %>
+        </div>
+    </div>
 </div>

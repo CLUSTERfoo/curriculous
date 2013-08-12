@@ -16,7 +16,7 @@ class Memo < ActiveRecord::Base
 
   default_scope -> { order 'created_at DESC' }
   
-  validates :content, presence: true, length: { minimum: 40 }
+  validates :content, presence: true, length: { minimum: 7 }
   validates :subject, presence: true, length: 7..140
   validates :user_id, presence: true
 

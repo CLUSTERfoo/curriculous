@@ -1,4 +1,2 @@
 $("#parent-memo").html(" <%=  escape_javascript(render partial: 'shared/memo', 
     locals: { memo: @memo, ajax: true }) %>").hide().fadeIn(1000)
-
-$("body").scrollTo("#parent-memo")
