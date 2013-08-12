@@ -25,6 +25,15 @@ footer {
 
 .small { font-size: $small-font-size; }
 
+.mr-button {
+  $bg: #FFF;
+  $radius: $global-radius;
+  $is-input: false;
+  @include button-base;
+  @include button-style($bg, $radius);
+  @include button-size;
+}
+
 /******************************************************************************
 ** Memos
 *******************************************************************************/

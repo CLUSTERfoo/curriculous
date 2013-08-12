@@ -11,20 +11,21 @@
     <div class="memo-content">
         <%= memo_content(memo.content, remote: ajax) %>
     </div>
+    
+    <hr>
 
     <% if memo.child_memos.any? %>
-        <div class="memo-headers">
-            <span><%= "This memo is referenced #{ memo.child_memos.count } times:" %> 
-                <% memo.child_memos.each do |child| %>
-                    <%= link_to child.token, memo_path(child.token), remote: ajax %>, 
-                <% end %>
-            </span>
-        </div>
+        <span class="small"><%= "#{ memo.child_memos.count } replies:" %> 
+            <% memo.child_memos.each do |child| %>
+                @<%= link_to child.token, memo_path(child.token), remote: ajax %> 
+            <% end %>
+         | </span> 
+    <% else %>
+        <span class="small">0 replies | </span>
     <% end %>
 
-    <% if ajax && current_user %>
-        <%= link_to "Reply", new_memo_path, remote: true, 
-            class: "button round small post-memo" %>
+    <% if current_user %>
+        <%= link_to "Reply", new_memo_path(memo_token: memo.token), remote: ajax, 
+            class: "small" %>
     <% end %>
-
 </div>

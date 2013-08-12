@@ -1,3 +1,9 @@
-$("#memo-reply").html(" <%= escape_javascript(render partial: "shared/memo_form", 
-    locals: { memo: @memo, ajax: true }) %>").hide().fadeIn()
-        
+if($("#new_memo").length == 0) {
+    $("#memo-reply").html(" <%= escape_javascript(render partial: "shared/memo_form", 
+        locals: { memo: @memo, ajax: true }) %>").hide().fadeIn();
+}
+
+$("#memo_content").val($("#memo_content").val() 
+  + "@<%= escape_javascript(params[:memo_token]) %> ") 
+
+$("body").scrollTo("#new_memo")
