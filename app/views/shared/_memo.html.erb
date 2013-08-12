@@ -22,4 +22,9 @@
         </div>
     <% end %>
 
+    <% if ajax && current_user %>
+        <%= link_to "Reply", new_memo_path, remote: true, 
+            class: "button round small post-memo" %>
+    <% end %>
+
 </div>

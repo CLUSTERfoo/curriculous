@@ -1,0 +1,3 @@
+$("#memo-reply").html(" <%= escape_javascript(render partial: "shared/memo_form", 
+    locals: { memo: @memo, ajax: true }) %>").hide().fadeIn()
+        

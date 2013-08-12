@@ -3,6 +3,10 @@ class MemosController < ApplicationController
 
   def new
     @memo = Memo.new
+    respond_to do |format|
+      format.html
+      format.js {}
+    end
   end
 
   def create
@@ -20,6 +24,7 @@ class MemosController < ApplicationController
 
   def show
     @memo = Memo.find_by_token(params[:token])
+    @reply = Memo.new
     respond_to do |format|
       format.html
       format.js {}

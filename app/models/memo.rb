@@ -32,7 +32,7 @@ class Memo < ActiveRecord::Base
   private
    
   def create_reationships
-    defaults = {relationships: %i(memo error user), tags: %i(tag)}
+    defaults = { relationships: %i(memo error user), tags: %i(tag) }
     defaults.each {|k, v| defaults[k] = v.inject({}){|h, k| h[k] = []; h } } 
     hash = MemoParser.to_hash(content)
     hash = defaults.merge(hash)
