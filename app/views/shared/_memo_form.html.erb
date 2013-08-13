@@ -1,8 +1,10 @@
 <% ajax ||= false %>
-<% if ajax %>
-    <h2 class="subheader">Reply:</h2>
-<% end %>
 <%= form_for(memo, remote: ajax) do |f| %>
+    <% if ajax %>
+        <h3 class="subheader">Reply:</h3>
+        <hr>
+    <% end %>
+
     <% if memo.errors.any? %>
         <div id="error-explanation">
             <div class="alert-box alert">

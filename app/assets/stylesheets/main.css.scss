@@ -1,6 +1,7 @@
 // Google font:
 @import url(http://fonts.googleapis.com/css?family=Special+Elite);
 
+
 /******************************************************************************
 ** Header && Footer
 *******************************************************************************/
@@ -42,6 +43,8 @@ footer {
 $memo-border-radius: 0px;
 $memo-border-color: #DDD;
 .memo {
+  @include panel;
+  background: #FFF;
   margin: 0px;
   overflow: hidden;
   .memo-identifier {
@@ -63,6 +66,9 @@ $memo-border-color: #DDD;
 }
 
 // Special memo stylings
+.main-memo {
+  .memo { background: $panel-bg }
+}
 
 .memo-full {
   padding-bottom: $paragraph-margin-bottom;
