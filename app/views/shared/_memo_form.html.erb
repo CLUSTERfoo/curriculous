@@ -5,6 +5,19 @@
         <hr>
     <% end %>
 
+    <div class="panel">
+        <p class="small">
+            To reply to a memo, simply include 
+            "<code>@(memo-id)</code>" somewhere in
+            your content. For example, to reply to memo <code>1Y2</code>, type
+            "<code>@1Y2</code>".
+        </p>
+        <p class="small">
+            You can reply to many memos at once! Simply include their ID's in 
+            the content of your memo.
+        </p>
+    </div>
+
     <% if memo.errors.any? %>
         <div id="error-explanation">
             <div class="alert-box alert">
