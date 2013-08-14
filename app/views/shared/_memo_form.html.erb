@@ -1,7 +1,7 @@
 <% ajax ||= false %>
 <%= form_for(memo, remote: ajax) do |f| %>
     <% if ajax %>
-        <h3 class="subheader">Reply:</h3>
+        <span class="subheader">Reply:</span>
         <hr>
     <% end %>
 
@@ -11,10 +11,8 @@
             "<code>@(memo-id)</code>" somewhere in
             your content. For example, to reply to memo <code>1Y2</code>, type
             "<code>@1Y2</code>".
-        </p>
-        <p class="small">
-            You can reply to many memos at once! Simply include their ID's in 
-            the content of your memo.
+            <br>
+            You can reply to many memos at once!
         </p>
     </div>
 
@@ -39,4 +37,16 @@
 
     <%= f.submit "Post memo", class: "mr-button round small" %>
 
+<% end %>
+
+<% if ajax %>
+    <hr>
+    <a class="close-reveal-modal">x</a>
+    <p class="small">
+        You can close this panel and reopen it later by clicking the "reply"
+        button of any memo on this page. This way you can reply to more than one memo
+        in the conversation.
+        <br>
+        Your content will not be erased while you remain on this page.
+    </p>
 <% end %>

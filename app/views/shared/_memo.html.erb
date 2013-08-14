@@ -11,8 +11,7 @@
         </div>
 
         <div class="memo-content">
-            <!-- TODO: remote: ajax -->
-            <%= memo_content(memo.content, remote: false) %>
+            <%= memo_content(memo.content, remote: ajax) %>
         </div>
         
         <hr>
@@ -30,7 +29,7 @@
             <% end %>
 
             <% if current_user %>
-                <%= link_to "Reply", new_memo_path(memo_token: memo.token), remote: ajax, 
+                <%= link_to "Reply", new_memo_path(memo_token: memo.token), remote: true, 
                     class: "small" %>
             <% end %>
         </div>

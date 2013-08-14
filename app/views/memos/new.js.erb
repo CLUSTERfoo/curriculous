@@ -1,10 +1,10 @@
 <% unless @memo.errors.any? %>
     if($("#new_memo").length == 0) {
 <% end %>
-    $("#memo-reply").html(" <%= escape_javascript(
-        render partial: "shared/memo_form", 
-        locals: { memo: @memo, ajax: true }
-    ) %>").hide().fadeIn();
+        $("#reply-modal").html(" <%= escape_javascript(
+            render partial: "shared/memo_form", 
+            locals: { memo: @memo, ajax: true }
+        ) %>");
 <% unless @memo.errors.any? %>
     }
 <% end %>
@@ -13,3 +13,5 @@
     $("#memo_content").val($("#memo_content").val() 
       + "@<%= escape_javascript(params[:memo_token]) %> ") 
 <% end %>
+
+$("#reply-modal").foundation('reveal', 'open')

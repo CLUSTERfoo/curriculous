@@ -6,7 +6,12 @@
 ** Header && Footer
 *******************************************************************************/
 
-#logo { a { color: #000; } }
+#logo { 
+  a { 
+  color: #000;
+  font-family: "Special Elite", Arial, sans-serif;
+  }
+}
 .subheader { font-family: arial; }
 #mini-nav {
   float: right;
@@ -35,6 +40,9 @@ footer {
   @include button-size;
 }
 
+.subheader {
+  ~ hr { margin-top: 0px; }
+}
 /******************************************************************************
 ** Memos
 *******************************************************************************/

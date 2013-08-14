@@ -1,8 +1,8 @@
 <% content_for :page_title, 'New memo' %>
-<h3 class="subheader">New memo</h3>
+<span class="subheader">New memo</span>
 
 <div class="row"> 
-    <div class="small-6 push-3 columns">
+    <div class="small-10 push-1 columns">
         <%= render partial: "shared/memo_form", locals: { memo: @memo } %>
     </div>
 </div>
