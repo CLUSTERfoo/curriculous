@@ -1,3 +1,4 @@
-$("#memo-modal").html(" <%=  escape_javascript(render partial: 'shared/memo', 
-    locals: { memo: @memo, ajax: true }) %>").foundation('reveal', 'open')
+$("#remote-memo").html(" <%=  escape_javascript(render partial: 'shared/memo', 
+    locals: { memo: @memo, ajax: true }) %>");
+$("#memo-modal").foundation('reveal', 'open');
 

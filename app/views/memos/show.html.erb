@@ -9,7 +9,7 @@
     <div id="memo-replies">
         <span class="subheader">Replies:</span>
         <hr>
-        <div id="parent-memo">
+        <div id="incoming-memos">
         </div>
         <% if @memo.child_memos.any? %>
             <% @memo.child_memos.each do |child| %>
@@ -22,6 +22,9 @@
 </div>
 
 <div id="memo-modal" class="reveal-modal">
+    <div id="remote-memo">
+    </div>
+    <a class="close-reveal-modal">x</a>
 </div>
 <div id="reply-modal" class="reveal-modal expand">
 </div>

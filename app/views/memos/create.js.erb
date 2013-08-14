@@ -1,2 +1,6 @@
 $("#new_memo").remove();
-$("#memo-reply").html("<div class='alert-box success'>Your memo has been posted!</div>")
+$("#reply-modal").html("<div class='alert-box success'>Your memo has been posted!</div><a class='close-reveal-modal'>x</a>")
+if($("#incoming-memos").length > 0) {
+    $("#incoming-memos").prepend("<%= j(render partial: 'shared/memo', 
+        locals: { memo: @memo, remote: true }) %>")
+} 
