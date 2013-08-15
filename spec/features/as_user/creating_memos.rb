@@ -30,7 +30,7 @@ describe "Creating memos as a user" do
     describe "With valid information" do
       before do
         fill_in "Subject",      with: "Hello this is title"
-        fill_in "Content",        with: "This will be long nuff: #{ 'hi' * 40 }"
+        fill_in "Content",        with: "This will be long nuff"
       end
 
       it "Should create a new memo" do

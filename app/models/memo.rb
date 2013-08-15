@@ -19,6 +19,8 @@ class Memo < ActiveRecord::Base
   validates :content, presence: true, length: { minimum: 7 }
   validates :subject, presence: true, length: 7..140
   validates :user_id, presence: true
+  
+  validate :parent_memo_must_exist
 
   # make base 36 token for readability
   def self.token_exists?(token)
@@ -34,6 +36,16 @@ class Memo < ActiveRecord::Base
   end
 
   private
+
+  def parent_memo_must_exist
+    hash = build_hash
+    hash[:relationships][:memo].each do |token|
+      if !Memo.token_exists?(token)
+        errors.add :derp!, "You wrote \"@#{ token }\", but that memo 
+          doesn't actually exist!"
+      end
+    end
+  end
    
   def create_reationships
     hash = build_hash
