@@ -8,13 +8,13 @@ describe MemoRelationship do
   
   before do
     @parent = user.memos.create(subject: "Parent Memo",
-                                content: "#{ 'a ' * 40 }", user_id: user.id)
+      content: "#{ 'a ' * 40 }", user_id: user.id)
   end
 
   describe "Hardcoding a relationship" do
     before do
       @child = user.memos.create(subject: "Child Memo", 
-                                 content: "#{ 'a ' * 40 }", user_id: user.id)
+        content: "#{ 'a ' * 40 }", user_id: user.id)
       @parent.child_memos << @child 
     end
 
@@ -29,12 +29,10 @@ describe MemoRelationship do
     end
   end
 
-  describe "Memo content has @relation" do
+  describe "Memo content has valid @relation" do
     before do
       @child = user.memos.build(subject: "Child Memo", 
-                              content: "#{ 'a ' * 40 } 
-                                        @#{ @parent.token }",
-                              user_id: user.id)
+        content: "fillerfill @#{ @parent.token }", user_id: user.id)
     end
 
     it "Creates a new relationship" do
@@ -48,6 +46,18 @@ describe MemoRelationship do
     specify "Child responds to parent" do
       @child.save
       expect(@child.parent_memos.find(@parent.id).subject).to eq(@parent.subject)
+    end
+  end
+
+  describe "Memo content has invalid @relation" do
+    before do
+      @child = user.memos.build(subject: "Child Memo", 
+        content: "fillerfill @#{ @parent.token }", user_id: user.id)
+    end
+
+    specify "Memo not to be valid" do
+      @parent.destroy
+      expect(@child).not_to be_valid
     end
   end
 end
