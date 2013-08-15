@@ -21,6 +21,10 @@ class Memo < ActiveRecord::Base
   validates :user_id, presence: true
 
   # make base 36 token for readability
+  def self.token_exists?(token)
+    exists?(token.to_i(36)) 
+  end
+
   def self.find_by_token(token)
     find(token.to_i(36))
   end
@@ -32,13 +36,17 @@ class Memo < ActiveRecord::Base
   private
    
   def create_reationships
-    defaults = { relationships: %i(memo error user), tags: %i(tag) }
-    defaults.each {|k, v| defaults[k] = v.inject({}){|h, k| h[k] = []; h } } 
-    hash = MemoParser.to_hash(content)
-    hash = defaults.merge(hash)
+    hash = build_hash
     hash[:relationships][:memo].each do |token|
       parent = Memo.find_by_token(token)
       parent_memos << parent
     end
+  end
+
+  def build_hash
+    defaults = { relationships: %i(memo error user), tags: %i(tag) }
+    defaults.each {|k, v| defaults[k] = v.inject({}){|h, k| h[k] = []; h } } 
+    hash = MemoParser.to_hash(content)
+    hash = defaults.merge(hash)
   end
 end

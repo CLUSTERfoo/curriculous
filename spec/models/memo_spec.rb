@@ -50,4 +50,22 @@ describe Memo do
     before { @memo.content = "a" * 6 }
     it { should_not be_valid }
   end
+
+  describe "Base-36 token representation of ID" do
+    before do
+      @memo.save
+      @id = @memo.id
+      @token = @memo.token
+    end
+
+    specify "Find by token should get correct memo" do
+      expect(Memo.find(@id)).to eq Memo.find_by_token(@token)
+    end
+
+    specify "Token exists? should check for the right memo" do
+      expect(Memo.token_exists?(@token)).to be_true 
+      @memo.destroy
+      expect(Memo.token_exists?(@token)).to be_false
+    end
+  end
 end
