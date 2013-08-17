@@ -16,7 +16,6 @@ describe "Signing up" do
   describe "With valid information" do
     before do
       fill_in "Username",     with: "Noam"
-      fill_in "Email",        with: "noam@email.com"
       fill_in "Password",     with: "noampass"
       fill_in "Password confirmation", with: "noampass"
     end
@@ -29,6 +28,14 @@ describe "Signing up" do
     it "Should log the user in" do
       click_button submit
       page.should have_link("Sign out")
+    end
+
+    describe "While being a robot" do
+      it "Should not let you sign up" do
+        fill_in "phone", with: "862-78-263-789"
+        click_button submit
+        page.should_not have_link("Sign out")
+      end
     end
   end
 end
