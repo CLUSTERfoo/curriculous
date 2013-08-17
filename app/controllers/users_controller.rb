@@ -5,7 +5,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if params[:phone].present?
+      render 'new'
+    elsif @user.save
       flash[:success] = "Your account has been created. Welcome, 
                         #{ @user.username }!"
       auto_login(@user)
