@@ -5,7 +5,7 @@
 
 <% if @replies.any? %>
     <% @replies.each  do |reply| %>
-        <%= render partial: "shared/memo", locals: { memo: reply, ajax: false } %>
+        <%= render partial: "shared/memo", locals: { memo: reply, ajax: true } %>
     <% end %>
     <%= will_paginate @replies %>
 <% else %>
@@ -14,5 +14,11 @@
     </p>
 <% end %>
 
+<div id="memo-modal" class="reveal-modal">
+    <div id="remote-memo">
+    </div>
+    <a class="close-reveal-modal">x</a>
+</div>
 <div id="reply-modal" class="reveal-modal expand">
+    <a class="close-reveal-modal">x</a>
 </div>
