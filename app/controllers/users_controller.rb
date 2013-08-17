@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:inbox]
+
   def new
     @user = User.new
   end
@@ -20,6 +22,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @memos = @user.memos.paginate(page: params[:page])
+  end
+
+  def inbox
+    @user = current_user
+    @replies = @user.replies.paginate(page: params[:page])
   end
 
   private

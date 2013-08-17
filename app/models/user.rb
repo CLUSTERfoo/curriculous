@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   before_save { self.username = username.downcase }
 
-  has_many :memos
+  has_many :memos, dependent: :destroy
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   # TODO: get actual email validation.
@@ -10,4 +10,14 @@ class User < ActiveRecord::Base
   validates :email, format: { with: VALID_EMAIL_REGEX, allow_blank: true }
   validates_confirmation_of :password, :message => "should match confirmation", :if => :password
   validates :password, presence: true
+
+  def replies
+    replies = []
+    memos.each do |memo|
+      memo.child_memos.each  do |child|
+        replies << child
+      end
+    end
+    replies
+  end
 end

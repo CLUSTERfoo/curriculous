@@ -1,0 +1,18 @@
+<% content_for :page_title, "Inbox" %>
+
+<span class="subheader">Inbox</span>
+<hr>
+
+<% if @replies.any? %>
+    <% @replies.each  do |reply| %>
+        <%= render partial: "shared/memo", locals: { memo: reply, ajax: false } %>
+    <% end %>
+    <%= will_paginate @replies %>
+<% else %>
+    <p>
+        Nobdy is talking to you. Say better things!
+    </p>
+<% end %>
+
+<div id="reply-modal" class="reveal-modal expand">
+</div>
