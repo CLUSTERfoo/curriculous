@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   before_save { self.username = username.downcase }
 
-  has_many :memos
+  has_many :memos, dependent: :destroy
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   # TODO: get actual email validation.

@@ -8,6 +8,10 @@
         <%= render partial: "shared/memo", locals: { memo: reply, ajax: false } %>
     <% end %>
     <%= will_paginate @replies %>
+<% else %>
+    <p>
+        Nobdy is talking to you. Say better things!
+    </p>
 <% end %>
 
 <div id="reply-modal" class="reveal-modal expand">

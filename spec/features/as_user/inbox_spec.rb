@@ -7,8 +7,9 @@ describe "Inbox page" do
     @user = FactoryGirl.create(:user)
     @user_attr = FactoryGirl.build(:user)
     @users_memo = FactoryGirl.create(:memo, user: @user)
-    @reply = FactoryGirl.create(:memo, 
-      content: "reply to #{ @users_memo.token }", user: @user)
+    # NOTE: FactoryGirl not building relationships?
+    @reply = @user.memos.create(subject: "Child Memo", 
+        content: "reply to @#{ @users_memo.token }", user_id: @user.id)
   end
 
   after(:all) do
@@ -24,5 +25,5 @@ describe "Inbox page" do
 
   it { should have_content("Inbox") }
   it { should have_title(full_title("Inbox")) }
-  it { should have_content("reply to #{ @users_memo.token }") }
+  it { should have_content(@reply.content) }
 end
