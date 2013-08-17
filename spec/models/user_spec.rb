@@ -16,6 +16,7 @@ describe User do
   it { should respond_to(:crypted_password) }
   it { should respond_to(:admin) }
   it { should respond_to(:memos) }
+  it { should respond_to(:replies) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -111,6 +112,21 @@ describe User do
 
     it "Should have the right memos in the right order" do
       expect(@user.memos.to_a).to eq [newer_memo, middle_memo, older_memo]
+    end
+  end
+
+  describe "Replies" do
+    before { @user.save }
+    # NOTE: Force with let! because let is lazily evaluated
+    # TODO: not sure in which order these are actually evaluated. This is hacky.
+    let!(:middle_memo) {  FactoryGirl.create(:memo, user: @user,
+                                             created_at: 3.hours.ago) }
+    let!(:newer_memo) { FactoryGirl.create(:memo, user: @user,
+      content: "reply to @#{ middle_memo.token }",
+      created_at: 1.hour.ago) }
+
+    it "Should show up" do
+      expect(@user.replies).to eq [newer_memo]
     end
   end
 end

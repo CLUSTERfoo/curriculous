@@ -19,4 +19,14 @@ describe "StaticPages" do
     before { visit signin_path }
     it { should have_title(full_title('Sign in')) }
   end
+
+  describe "Inbox page" do
+    before { visit inbox_path }
+    it { should have_title(full_title('Sign up')) }
+  end
+
+  describe "New memo page" do
+    before { visit new_memo_path }
+    it { should have_title(full_title('Sign up')) }
+  end
 end

@@ -3,7 +3,7 @@
 <span class="subheader"><%= @user.username.capitalize %></span>
 <hr>
 
-<% if @user.memos.any? %>
+<% if @memos.any? %>
     <% @memos.each do |memo| %>
         <%= render partial: "shared/memo", locals: { memo: memo, ajax: false } %>
     <% end %>

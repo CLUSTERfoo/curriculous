@@ -10,4 +10,14 @@ class User < ActiveRecord::Base
   validates :email, format: { with: VALID_EMAIL_REGEX, allow_blank: true }
   validates_confirmation_of :password, :message => "should match confirmation", :if => :password
   validates :password, presence: true
+
+  def replies
+    replies = []
+    memos.each do |memo|
+      memo.child_memos.each  do |child|
+        replies << child
+      end
+    end
+    replies
+  end
 end
