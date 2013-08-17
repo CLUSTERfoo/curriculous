@@ -8,12 +8,15 @@ module ApplicationHelper
      end
    end
 
-  # processes content of memo and prepares it for view
+  # Processes content of memo and prepares it for view
   def memo_content(input, remote: false)
-    content = input.gsub(/@([a-z0-9A-Z]+)/) do |match|
+    # NOTE: Thinking of using gsub?
+    # You really done goofed now: https://github.com/rails/rails/issues/1555
+    # tl;dr: Don't remove .to_str
+    content = html_escape(input).to_str
+    content = content.gsub(/@([a-z0-9A-Z]+)/) do |match|
       link_to "@#{ $1 }", memo_path($1), class: "marker", remote: remote
     end 
-
-    simple_format content, {  }, sanitize: false
+    content = simple_format content, {  }, sanitize: false
   end
 end
