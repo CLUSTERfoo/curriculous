@@ -7,15 +7,15 @@
 </p>
 
 <div class="row"> 
-    <div class="small-12 large-6 columns">
+    <div class="small-12 large-6 push-3 columns">
         <%= form_for(@user) do |f| %>
             <%= render 'shared/error_messages' %>
 
             <%= f.label :username %>
             <%= f.text_field :username %>
 
-            <%= f.label :email, "Email (optional)" %>
-            <%= f.text_field :email %>
+            <%= label_tag :phone, "If you are a real boy, leave this blank!" %>
+            <%= text_field_tag :phone %>
 
             <%= f.label :password %>
             <%= f.password_field :password %>
@@ -26,14 +26,5 @@
             <%= f.submit "Create new account", class: "mr-button round small" %>
 
         <% end %>
-    </div>
-    <div class="small-12 large-6 columns panel">
-        <p>
-            Your email is optional and only for forgotten passwords and important
-            notifications regarding your account.
-        </p>
-        <p>
-            We do not send newsletters or spam of any sort.
-        </p>
     </div>
 </div>
