@@ -32,6 +32,13 @@
                 <%= link_to "Reply", new_memo_path(memo_token: memo.token), remote: true, 
                     class: "small" %>
             <% end %>
+
+            <% if current_user && current_user.admin? %>
+                <span class="small"> | 
+                    <%= link_to "Delete", memo.token, method: :delete, 
+                        data: { confirm: "Are you sure?" } %> 
+                </span>
+            <% end %>
         </div>
     </div>
 </div>

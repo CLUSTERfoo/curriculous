@@ -1,5 +1,5 @@
 class MemosController < ApplicationController
-  before_action :require_login, only: [:new, :create]
+  before_action :require_login, only: [:new, :create, :destroy]
 
   def new
     @memo = Memo.new
@@ -22,6 +22,12 @@ class MemosController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    Memo.find_by_token(params[:id]).destroy
+    flash[:success] = "Memo @#{ params[:token] } has been destroyed!"
+    redirect_to root_path
   end
 
   def index
