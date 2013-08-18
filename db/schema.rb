@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130806161248) do
+ActiveRecord::Schema.define(version: 20130818225208) do
 
   create_table "memo_relationships", force: true do |t|
     t.integer "parent_memo_id", null: false
@@ -34,15 +34,18 @@ ActiveRecord::Schema.define(version: 20130806161248) do
   add_index "memos", ["user_id"], name: "index_memos_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",                         null: false
+    t.string   "username",                                     null: false
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",            default: false
+    t.boolean  "admin",                        default: false
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
   end
 
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

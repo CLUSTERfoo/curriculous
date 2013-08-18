@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
   def create
     # TODO: shouldn't have to specify .downcase
     if @user = login( params[:session][:username].downcase, 
-                      params[:session][:password])
+                      params[:session][:password],
+                      params[:session][:remember] = true)
       redirect_back_or_to(:root, success: "Welcome back!")
     else
       flash[:alert] = "Login failed."

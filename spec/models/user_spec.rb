@@ -17,11 +17,14 @@ describe User do
   it { should respond_to(:admin) }
   it { should respond_to(:memos) }
   it { should respond_to(:replies) }
+  it { should respond_to(:remember_me_token) }
+  it { should respond_to(:remember_me_token_expires_at) }
 
   it { should be_valid }
   it { should_not be_admin }
 
-  # username tests
+
+  # Username tests
 
   describe "when username is not present" do
       before { @user.username = "" }
@@ -37,7 +40,7 @@ describe User do
     it { should_not be_valid }
   end
 
-  # password tests
+  # Password tests
 
   describe "when password is not present" do
     before do
@@ -53,7 +56,7 @@ describe User do
     it { should_not be_valid }
   end
 
-  # email tests
+  # Email tests
 
   describe "when email format is invalid" do
     it "should be invalid" do
@@ -86,7 +89,7 @@ describe User do
     end
   end
 
-  # admin tests
+  # Admin tests
 
   describe "With admin attribute set to true" do
     before do
@@ -97,7 +100,7 @@ describe User do
     end
   end
 
-  # memos tests
+  # Memos tests
 
   describe "Micropost associations" do
     before { @user.save }
