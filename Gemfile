@@ -34,7 +34,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'unicorn'
 end
 
 
@@ -46,8 +46,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-
-# Use unicorn as the app server
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
