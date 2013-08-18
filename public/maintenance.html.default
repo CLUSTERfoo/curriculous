@@ -49,9 +49,10 @@
 <body>
   <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <h1>LOST</h1>
-    <p>404, man. There's no such page. You in no-man's land now.</p>
+    <h1>MemoRabble is undergoing maintenance.</h1>
+    <p>Who knows... maybe I'm deploying a cool new feature?</p>
+    <p>Come back soon!</p>
   </div>
-  <p>We have to go back!</p>
+  <p>(Or I probably broke something.)</p>
 </body>
 </html>
