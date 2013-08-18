@@ -15,6 +15,7 @@ gem 'zurb-foundation', '~> 4.3.0'
 gem 'will_paginate', '~> 3.0.4'
 gem 'pg'
 gem 'memoparser', :git => "git://github.com/CLUSTERfoo/MemoParser.git", :branch => 'master'
+gem 'fitter-happier'
 
 
 
