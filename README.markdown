@@ -1,6 +1,6 @@
 # MemoRabble
 
-The official repo for [MemoRabble.net](http://memorabble.net) **(coming soon)**.
+The official repo for [MemoRabble.net](http://memorabble.net)
 
 ### Development
 
