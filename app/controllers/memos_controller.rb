@@ -42,6 +42,14 @@ class MemosController < ApplicationController
     end
   end
 
+  def replies
+    @parent_memo = Memo.find_by_token(params[:token])
+    respond_to do |format|
+      format.html
+      format.js {}
+    end
+  end
+
   private
 
     def memo_params

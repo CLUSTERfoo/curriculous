@@ -2,6 +2,8 @@ MemoRabble::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :memos, except: [:show]
+
+  get 'memos/:token/replies', to: 'memos#replies', as: 'memo_replies', constraints: { format: 'js' }
   get '/memos/:token', to: 'memos#show'
   get '/inbox', to: 'users#inbox'
 

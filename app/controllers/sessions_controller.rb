@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
     if @user = login( params[:session][:username].downcase, 
                       params[:session][:password],
                       params[:session][:remember] = true)
-      redirect_back_or_to(:root, success: "Welcome back!")
+      redirect_back_or_to(:root, success: "Welcome back! -- NOTE: MemoRabble 
+        is still under heavy development. If you have any sugestions, or find any
+        bugs, let me know! (See 'About' page for contact info.)")
     else
       flash[:alert] = "Login failed."
       render 'new'

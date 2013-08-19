@@ -1,0 +1,10 @@
+<span class="subheader">Replies to <%= parent_memo.id %>:</span>
+<hr>
+
+<% if parent_memo.child_memos.any? %>
+    <% parent_memo.child_memos.each do |child| %>
+        <%= render partial: "shared/memo_min", locals: { memo: child, ajax: true } %>
+    <% end %>
+<% end %>
+
+<a class="close-reveal-modal">x</a>

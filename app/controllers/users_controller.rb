@@ -11,7 +11,9 @@ class UsersController < ApplicationController
       render 'new'
     elsif @user.save
       flash[:success] = "Your account has been created. Welcome, 
-                        #{ @user.username }!"
+                        #{ @user.username }! -- NOTE: MemoRabble 
+        is still under heavy development. If you have any sugestions, or find any
+        bugs, let me know! (See 'About' page for contact info.)"
       auto_login(@user)
       redirect_to root_path
     else

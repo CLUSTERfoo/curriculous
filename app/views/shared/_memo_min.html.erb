@@ -6,20 +6,28 @@
     </div>
     <div class="memo-wrapper">
         <div class="memo-header">
-            <div class="memo-title"><%= link_to "#{ memo.subject }", memo_path(memo.token) %></div><br>
-            <span class="small"><%= memo.created_at.strftime("%A, %B %d, %Y") %> 
-                (<%= time_ago_in_words(memo.created_at) %> ago)<br></span>
-            <span class="small">User: <%= link_to "#{ memo.user.username }", 
-                user_path(memo.user.id) %> | </span>    
+            <div class="memo-title">
+                <%= link_to "#{ memo.subject }", memo_path(memo.token), remote: ajax %>
+            </div>
 
-            <% if memo.child_memos.any? %>
-                <span class="small"><%= "#{ memo.child_memos.count } replies:" %> 
-                    <% memo.child_memos.each do |child| %>
-                        @<%= link_to child.token, memo_path(child.token), remote: ajax %> 
+            <span class="small">
+                <%= memo.created_at.strftime("%A, %B %d, %Y") %> 
+                    (<%= time_ago_in_words(memo.created_at) %> ago)<br>
+            </span>
+
+            <span class="small">User: <%= link_to "#{ memo.user.username }", 
+                user_path(memo.user.id) %> | </span>
+
+            <span class="small">
+                <%= memo.child_memos.count %> replies 
+            </span>
+
+            <% if memo.parent_memos.any? %>
+                <span class="small">| Is a reply to:  
+                    <% memo.parent_memos.each do |parent| %>
+                        <%= link_to "@#{ parent.token }", memo_path(parent.token), remote: ajax %> 
                     <% end %>
                  </span> 
-            <% else %>
-                <span class="small">0 replies</span>
             <% end %>
         </div>
     </div>

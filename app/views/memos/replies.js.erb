@@ -1,0 +1,3 @@
+$("#remote-memo").html(" <%=  escape_javascript(render partial: 'shared/replies', 
+    locals: { parent_memo: @parent_memo }) %>");
+$("#memo-modal").foundation('reveal', 'open');

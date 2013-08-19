@@ -1,4 +1,8 @@
+// If there are errors, replace with new partial
 <% unless @memo.errors.any? %>
+    // If there are no errors, then only replace if #new_memo element
+    // does not exist. This makes sure that if user started typing
+    // New content will be appended instead of replacing old.
     if($("#new_memo").length == 0) {
 <% end %>
         $("#reply-modal").html(" <%= escape_javascript(
