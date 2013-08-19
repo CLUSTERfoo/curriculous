@@ -12,13 +12,16 @@ describe "Deleting memos as Admin" do
   after(:all) do
     @admin.destroy
     @user.destroy
-    @memo.destroy
   end
 
   before do
     sign_in(@admin_attr)
     @memo = FactoryGirl.create(:memo, user: @user)
     visit memo_path(@memo.token)
+  end
+
+  after do
+    @memo.destroy
   end
 
   it { should have_title(full_title(@memo.subject)) }

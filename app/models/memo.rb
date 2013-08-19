@@ -3,6 +3,11 @@ class Memo < ActiveRecord::Base
 
   belongs_to :user
   before_save :create_reationships
+  after_initialize :init
+
+  def init
+    self.content ||= ""
+  end
 
   # memo relationship
   has_many :memo_relationships, foreign_key: :parent_memo_id, 
@@ -16,9 +21,14 @@ class Memo < ActiveRecord::Base
 
   default_scope -> { order 'created_at DESC' }
   
-  validates :content, presence: true, length: { minimum: 7 }
   validates :subject, presence: true, length: 7..140
   validates :user_id, presence: true
+
+  validate :content_is_not_nil
+
+  def content_is_not_nil
+    errors.add :content, 'Content can not be nil' if content.nil? 
+  end
   
   validate :parent_memo_must_exist
 

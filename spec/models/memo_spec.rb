@@ -3,9 +3,8 @@ require 'spec_helper'
 describe Memo do
   let(:user) { FactoryGirl.create(:user) }
   before do
-    @memo = user.memos.build(subject: "Hello world", 
-                            content: "#{ 'a ' * 40 }", 
-                            user_id: user.id)
+    @memo = user.memos.build(subject: "Hello world", content: "#{ 'a ' * 40 }", 
+      user_id: user.id)
   end
 
   subject { @memo }
@@ -41,14 +40,11 @@ describe Memo do
     it { should_not be_valid }
   end
 
-  describe "With no content" do
-    before { @memo.content = " " }
-    it { should_not be_valid }
-  end
-
-  describe "With content that is too short" do
-    before { @memo.content = "a" * 6 }
-    it { should_not be_valid }
+  describe "With no content is blank string" do
+    before do
+      @memo_blank = user.memos.build(subject: "Hello world", user_id: user.id)
+    end
+    it { expect(@memo_blank.content).to eq "" }
   end
 
   describe "Base-36 token representation of ID" do

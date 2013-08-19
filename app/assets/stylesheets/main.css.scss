@@ -70,6 +70,7 @@ $memo-border-color: #DDD;
 .memo-header {
   padding: $panel-padding; 
   margin-bottom: $paragraph-margin-bottom;
+  font-size: emCalc(13px);
 }
 
 // Special memo stylings
