@@ -1,6 +1,3 @@
-// Google font:
-@import url(http://fonts.googleapis.com/css?family=Special+Elite);
-
 
 /******************************************************************************
 ** Header && Footer
@@ -12,10 +9,11 @@
   font-family: "Special Elite", Arial, sans-serif;
   }
 }
-.subheader { font-family: arial; }
+
 #mini-nav {
   float: right;
 }
+
 #main-post-button { 
   float: right; 
   clear: both;
@@ -28,6 +26,17 @@ footer {
 /******************************************************************************
 ** Style
 *******************************************************************************/
+
+pre { 
+  font-size: $paragraph-font-size; 
+  margin-bottom: $paragraph-margin-bottom; 
+}
+
+code { 
+  color: #499; 
+  white-space: pre; 
+  font-family: 'Oxygen Mono' 
+}
 
 .small { font-size: $small-font-size; }
 
@@ -52,6 +61,7 @@ $memo-border-radius: 0px;
 $memo-border-color: #DDD;
 .memo {
   @include panel;
+  padding: emCalc(5px);
   background: #FFF;
   margin: 0px;
   overflow: hidden;
@@ -67,14 +77,16 @@ $memo-border-color: #DDD;
   }
   border-radius: $memo-border-radius;
 }
+
 .memo-header {
   padding: $panel-padding; 
-  margin-bottom: $paragraph-margin-bottom;
+  .memo-title { font-size: emCalc(13px) }
 }
 
 // Special memo stylings
 .main-memo {
-  .memo { background: $panel-bg }
+  padding: 1px;
+  border: thin solid $memo-border-color;
 }
 
 .memo-full {

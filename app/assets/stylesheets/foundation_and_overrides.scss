@@ -2,11 +2,25 @@
 //@import "foundation/foundation-global";
 @import "foundation/variables";
 
-// Settings file to override Foundation variables
+// Google font:
+@import url(http://fonts.googleapis.com/css?family=Special+Elite|Anaheim|Oxygen+Mono|Sanchez);
 
-// You can find the variables for each component at the bottom of their
-// doc page. We tried to name them to where they'd make sense just by reading them.
-// Go to http://foundation.zurb.com/docs/ to find what you need.
+/******************************************************************************
+** My Foundation overrides
+*******************************************************************************/
+$body-font-family: 'Sanchez', Helvetica, Arial, sans-serif;
+
+$primary-color: #944;
+$secondary-color: #400;
+$alert-color: #F40;
+$success-color: #090;
+
+$paragraph-font-size: emCalc(13px);
+$panel-padding: emCalc(5px);
+$panel-function-factor: 20%;
+
+/******************************************************************************
+*******************************************************************************/
 
 //
 // Foundation Global Variables
@@ -18,7 +32,7 @@
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
-$body-font-family: arial, "Special Elite", Helvetica, Arial, sans-serif;
+// $body-font-family: arial, "Special Elite", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -29,10 +43,10 @@ $body-font-family: arial, "Special Elite", Helvetica, Arial, sans-serif;
 // $text-direction: ltr;
 
 // We use these as default colors throughout
-$primary-color: #D00;
-$secondary-color: #400;
-$alert-color: #F40;
-$success-color: #090;
+//$primary-color: #D00;
+//$secondary-color: #400;
+//$alert-color: #F40;
+//$success-color: #090;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -117,7 +131,7 @@ $success-color: #090;
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: normal;
-$paragraph-font-size: emCalc(13px);
+// $paragraph-font-size: emCalc(13px);
 // $paragraph-line-height: 1.6;
 // $paragraph-margin-bottom: emCalc(20px);
 // $paragraph-aside-font-size: emCalc(14px);
@@ -676,12 +690,12 @@ $paragraph-font-size: emCalc(13px);
 // $panel-border-size: 1px;
 
 // We use this % to control how much we darken things on hover
-$panel-function-factor: 20%;
+//$panel-function-factor: 20%;
 // $panel-border-color: darken($panel-bg, $panel-function-factor);
 
 // We use these to set default inner padding and bottom margin
 // $panel-margin-bottom: emCalc(20px);
-// $panel-padding: emCalc(20px);
+//$panel-padding: emCalc(5px);
 
 // We use these to set default font colors
 // $panel-font-color: #333;
