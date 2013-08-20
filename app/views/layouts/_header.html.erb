@@ -1,7 +1,13 @@
 <header class="small-12 columns container">
     <div class="row">
         <hgroup class="small-12 large-6 columns" id="header-title">
-            <span id="logo"><%= link_to "MemoRabble", root_path %></span>
+            <span id="logo"><%= link_to "MemoRabble", root_path %> 
+            <span class="small">(alpha)</span></span><br>
+            <% unless current_user %>
+                <span class="small">MemoRabble is still in development. I'm adding new features 
+                all the time.<br>
+                Sign up and try it out! (No email required.)</span>
+            <% end %>
         </hgroup> 
         <div class="small-12 large-6 columns">
             <dl class="sub-nav" id="mini-nav">
