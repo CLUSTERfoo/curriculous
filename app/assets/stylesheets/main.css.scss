@@ -33,9 +33,10 @@ pre {
 }
 
 code { 
-  color: #499; 
+  font-weight: normal;
+  color: #449; 
   white-space: pre; 
-  font-family: 'Oxygen Mono' 
+  font-family: 'Ubuntu Mono', 'Courier', 'monospace';
 }
 
 .small { font-size: $small-font-size; }

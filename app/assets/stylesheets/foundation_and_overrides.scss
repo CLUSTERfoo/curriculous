@@ -3,7 +3,7 @@
 @import "foundation/variables";
 
 // Google font:
-@import url(http://fonts.googleapis.com/css?family=Special+Elite|Anaheim|Oxygen+Mono|Sanchez);
+@import url(http://fonts.googleapis.com/css?family=Special+Elite|Anaheim|Ubuntu+Mono|Sanchez);
 
 /******************************************************************************
 ** My Foundation overrides
@@ -19,6 +19,8 @@ $paragraph-font-size: emCalc(13px);
 $panel-padding: emCalc(5px);
 $panel-function-factor: 20%;
 
+$reveal-position-top: 25px;
+$reveal-default-width: 90%;
 /******************************************************************************
 *******************************************************************************/
 

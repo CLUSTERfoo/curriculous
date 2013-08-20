@@ -5,16 +5,6 @@
         <hr>
     <% end %>
 
-    <div class="panel">
-        <p class="small">
-            To reply to a memo, simply include 
-            "<code>@(memo-id)</code>" somewhere in
-            your content. For example, to reply to memo <code>1Y2</code>, type
-            "<code>@1Y2</code>".
-            <br>
-            You can reply to many memos at once!
-        </p>
-    </div>
 
     <% if memo.errors.any? %>
         <div id="error-explanation">
@@ -38,6 +28,30 @@
     <%= f.submit "Post memo", class: "mr-button round small" %>
 
 <% end %>
+
+<span class="subheader">Howto:</span>
+<hr>
+
+    <div class="panel">
+        <p class="small">
+            Reply to a memo:<br> 
+            Simply include 
+            "<code>@(memo-id)</code>" somewhere in
+            your content. For example, to reply to memo <code>1Y2</code>, type
+            "<code>@1Y2</code>".
+            <br>
+            You can reply to many memos at once!
+        </p>
+    </div>
+
+<div class="panel">
+    <p class="small">
+        Style your text and include images:<br>
+        <code>![](image-url)</code> | <code>**bold**</code> | <code>*italic*</code> | 
+        <code>==highlighted==</code> |  <code>text^super</code> | <code>~~strike~~</code> | 
+        <code>`inline code`</code> (for block code start line with four blank spaces) 
+    </p>
+</div>
 
 <% if ajax %>
     <hr>
