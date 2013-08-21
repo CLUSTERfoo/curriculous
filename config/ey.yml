@@ -1,6 +1,6 @@
 defaults:
   precompile_assets: true
-  asset_dependencies: # a list of relative paths to search for asset changes during each deploy.
+  asset_dependencies:
   # default
   - app/assets
   - lib/assets
