@@ -1,2 +1,12 @@
 defaults:
   precompile_assets: true
+  asset_dependencies: # a list of relative paths to search for asset changes during each deploy.
+  # default
+  - app/assets
+  - lib/assets
+  - vendor/assets
+  - Gemfile.lock
+  - config/application.rb
+  - config/routes.rb
+  # custom
+  - .secret 
