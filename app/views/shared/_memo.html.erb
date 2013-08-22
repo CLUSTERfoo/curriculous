@@ -35,6 +35,9 @@
             <% if current_user %>
                 <%= link_to "Reply", new_memo_path(memo_token: memo.token), remote: true, 
                     class: "small" %>
+            <% else %>
+                <%= link_to "Reply", new_memo_path(memo_token: memo.token), remote: false, 
+                    class: "small" %>
             <% end %>
 
             <% if current_user && current_user.admin? %>
