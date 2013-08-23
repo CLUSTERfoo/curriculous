@@ -40,6 +40,11 @@ describe Memo do
     it { should_not be_valid }
   end
 
+  describe "With content that is too long" do
+    before { @memo.subject = "a" * 15002 }
+    it { should_not be_valid }
+  end
+
   describe "With no content is blank string" do
     before do
       @memo_blank = user.memos.build(subject: "Hello world", user_id: user.id)
