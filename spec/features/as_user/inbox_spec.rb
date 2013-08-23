@@ -5,7 +5,7 @@ describe "Inbox page" do
 
   # Setup and teardown
 
-  before(:all) do
+  before do
     @user = FactoryGirl.create(:user)
     @user_attr = FactoryGirl.build(:user)
     @other_user = FactoryGirl.create(:user, username: "other")
@@ -19,17 +19,6 @@ describe "Inbox page" do
       subject: "Child Memo", 
       content: "reply to @#{ @users_memo.token }", user_id: @user.id
     )
-  end
-
-  after(:all) do
-    @user.destroy
-    @users_memo.destroy
-    @reply.destroy
-    @other_user.destroy
-    @user_reply.destroy
-  end
-
-  before do
     sign_in(@user_attr)
     visit inbox_path 
   end

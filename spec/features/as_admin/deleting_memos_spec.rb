@@ -3,25 +3,13 @@ require 'spec_helper'
 describe "Deleting memos as Admin" do
   subject { page }
 
-  before(:all) do
+  before do
     @admin = FactoryGirl.create(:admin, username: "Admin")
     @admin_attr = FactoryGirl.build(:admin, username: "Admin")
     @user = FactoryGirl.create(:user)
-  end
-
-  after(:all) do
-    @admin.destroy
-    @user.destroy
-  end
-
-  before do
     sign_in(@admin_attr)
     @memo = FactoryGirl.create(:memo, user: @user)
     visit memo_path(@memo.token)
-  end
-
-  after do
-    @memo.destroy
   end
 
   it { should have_title(full_title(@memo.subject)) }

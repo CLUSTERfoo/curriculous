@@ -3,15 +3,10 @@ require 'spec_helper'
 describe "Browsing site as any visitor" do
   subject { page }
 
-  before(:all) do
+  before do
     @user = FactoryGirl.create(:user)
     @memo = FactoryGirl.create(:memo, user: @user, subject: "Foo Foo", 
                                         content: "foo" * 40)
-  end
-
-  after(:all) do
-    @user.destroy
-    @memo.destroy
   end
 
   describe "Home Page" do

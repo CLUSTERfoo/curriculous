@@ -3,20 +3,11 @@ require 'spec_helper'
 describe "Browsing site as signed in user" do
   subject { page }
 
-  before(:all) do
+  before do
     @user = FactoryGirl.create(:user)
     @other_user = FactoryGirl.create(:user, username: "John")
     @user_attr = FactoryGirl.build(:user)
     @memo = FactoryGirl.create(:memo, user: @other_user)
-  end
-
-  after(:all) do
-    @user.destroy
-    @other_user.destroy
-    @memo.destroy
-  end
-
-  before do
     sign_in(@user_attr)
   end
 

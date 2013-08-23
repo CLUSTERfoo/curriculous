@@ -119,17 +119,16 @@ describe User do
   end
 
   describe "Replies" do
-    before { @user.save }
-    # NOTE: Force with let! because let is lazily evaluated
-    # TODO: not sure in which order these are actually evaluated. This is hacky.
-    let!(:middle_memo) {  FactoryGirl.create(:memo, user: @user,
-                                             created_at: 3.hours.ago) }
-    let!(:newer_memo) { FactoryGirl.create(:memo, user: @user,
-      content: "reply to @#{ middle_memo.token }",
-      created_at: 1.hour.ago) }
+    before { 
+      @user.save 
+      @user2 = FactoryGirl.create(:user, username: "poo")
+      @middle_memo = FactoryGirl.create(:memo, user: @user)
+      @reply = FactoryGirl.create(:memo, content: "reply to @#{ @middle_memo.token }", user: @user2)
+      @user_reply = FactoryGirl.create(:memo, user: @user, content: "reply to @#{ @middle_memo.token }") 
+    }
 
     it "Should show up" do
-      expect(@user.replies).to eq [newer_memo]
+      expect(@user.replies).to eq [@reply]
     end
   end
 end

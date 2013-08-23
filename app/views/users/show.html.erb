@@ -5,7 +5,7 @@
 
 <% if @memos.any? %>
     <% @memos.each do |memo| %>
-        <%= render partial: "shared/memo", locals: { memo: memo, ajax: false } %>
+        <%= render partial: "shared/memo_min", locals: { memo: memo, ajax: false } %>
     <% end %>
     <%= will_paginate @memos %>
 <% end %>

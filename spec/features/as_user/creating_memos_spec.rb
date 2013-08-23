@@ -5,16 +5,9 @@ describe "Creating memos as a user" do
 
   # NOTE: let! or tests break because of lazy loading
 
-  before(:all) do
+  before do
     @user = FactoryGirl.create(:user)
     @user_attr = FactoryGirl.build(:user)
-  end
-
-  after(:all) do
-    @user.destroy
-  end
-
-  before do
     sign_in(@user_attr)
     visit new_memo_path
   end
