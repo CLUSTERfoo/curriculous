@@ -4,7 +4,7 @@
         <span class="small">Memo ID:</span><br>
         @<%= memo.token %>
     </div>
-    <div class="memo-wrapper">
+    <div class="memo-wrapper<%= ' nsfw' if memo.nsfw? %>">
         <div class="memo-header">
             <div class="memo-title">
                 <%= link_to "#{ memo.subject }", memo_path(memo.token), remote: ajax %>

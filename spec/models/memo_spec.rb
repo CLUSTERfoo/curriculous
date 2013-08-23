@@ -16,6 +16,7 @@ describe Memo do
   it { should respond_to(:inverse_memo_relationships) }
   it { should respond_to(:child_memos) }
   it { should respond_to(:parent_memos) }
+  it { should respond_to(:nsfw) }
   its(:user) { should == user }
 
   it { should be_valid }
