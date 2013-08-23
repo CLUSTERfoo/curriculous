@@ -28,7 +28,7 @@ module ApplicationHelper
     def image(link, title, alt_text)
       "<div class=\"image-wrapper\">
         <img src=\"#{ link }\" title=\"#{ title}\" alt=\"#{ alt_text}\">
-        <span class=\"image-toggle small\">show/hide image</span>
+        <span class=\"image-toggle mr-button\">show/hide image</span>
       </div>"
     end
   end

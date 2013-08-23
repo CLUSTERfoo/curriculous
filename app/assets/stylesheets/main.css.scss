@@ -45,13 +45,6 @@ mark {
 	background: #cfc;
 }
 
-img {
-  display: block;
-  vertical-align: none;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .small { font-size: $small-font-size; }
 
 .mr-button {
@@ -79,13 +72,35 @@ $memo-border-color: #DDD;
   background: #FFF;
   margin: 0px;
   overflow: hidden;
+  border-radius: $memo-border-radius;
+
   .memo-identifier {
     color: $small-font-color;
     padding: $panel-padding;
     float: left;
     span { font-size: $small-font-size; }
   }
-  border-radius: $memo-border-radius;
+
+  .memo-wrapper  {
+    img {
+      display: block;
+      vertical-align: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .image-toggle  {
+      display: table;
+      margin: $paragraph-margin-bottom auto $paragraph-margin-bottom auto;
+    }
+    &.nsfw {
+      img { display: none; }
+      .image-toggle::after, .memo-title a::after { 
+        content: " [NSFW]"; 
+        font-size: $small-font-size;
+        color: #F00; 
+      }
+    }
+  }
 }
 
 .memo-header {

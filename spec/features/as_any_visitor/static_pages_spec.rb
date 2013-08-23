@@ -27,6 +27,7 @@ describe "Browsing site as any visitor" do
     it { should have_title(full_title(@memo.subject)) }
     it { should have_content(@memo.subject) }
     it { should have_content(@memo.content) }
+    it "Write NSFW memo tests, ya lazy bum!"
   end
 
   describe "User profile page" do

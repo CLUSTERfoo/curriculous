@@ -5,7 +5,7 @@
         @<%= memo.token %>
     </div>
 
-    <div class="memo-wrapper">
+    <div class="memo-wrapper<%= ' nsfw' if memo.nsfw? %>">
         <div class="memo-header" data-memo-id="<%= memo.token %>">
             <div class="memo-title"><%= link_to "#{ memo.subject }", memo_path(memo.token) %></div><br>
             <hr>
