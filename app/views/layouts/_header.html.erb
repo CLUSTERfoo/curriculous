@@ -16,7 +16,7 @@
                     <dd><%= link_to 'About', about_path %></dd>
                 <% if current_user %>
                     <dt><%= current_user.username.capitalize %>:</dt>
-                        <dd><%= link_to 'Profile', user_path(current_user.id) %></dd>
+                        <dd><%= link_to 'Profile', user_path(current_user.username) %></dd>
                         <dd><%= link_to 'Inbox', inbox_path %></dd>
                         <dd><%= link_to 'Sign out', :signout, method: 'delete' %></dd>
                 <% else %>

@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:username])
     @memos = @user.memos.paginate(page: params[:page])
   end
 

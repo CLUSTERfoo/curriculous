@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :message => "should match confirmation", :if => :password
   validates :password, presence: true
 
+  # TODO: This really should be a single query...
   def replies
     replies = []
     memos.each do |memo|

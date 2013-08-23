@@ -30,7 +30,7 @@ describe "Browsing site as any visitor" do
   end
 
   describe "User profile page" do
-    before { visit user_path(@user) }
+    before { visit user_path(@user.username) }
 
     it { should have_title(full_title(@user.username)) }
     it { should have_content(@user.username.capitalize) }

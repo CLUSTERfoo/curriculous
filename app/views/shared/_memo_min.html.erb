@@ -16,7 +16,7 @@
             </span>
 
             <span class="small">By: <%= link_to "#{ memo.user.username }", 
-                user_path(memo.user.id) %> | </span>
+                user_path(memo.user.username) %> | </span>
 
             <span class="small">
                 <%= memo.child_memos.count %> replies 
