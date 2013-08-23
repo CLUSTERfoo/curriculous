@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     replies = []
     memos.each do |memo|
       memo.child_memos.each  do |child|
-        replies << child
+        replies << child unless child.user.username == username
       end
     end
     replies
