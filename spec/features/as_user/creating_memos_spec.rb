@@ -3,12 +3,11 @@ require 'spec_helper'
 describe "Creating memos as a user" do
   subject { page }
 
-  # NOTE: let! or tests break because of lazy loading
+  let!(:user) { FactoryGirl.create(:user) }
+  let(:user_attr) {FactoryGirl.build(:user) }
 
   before do
-    @user = FactoryGirl.create(:user)
-    @user_attr = FactoryGirl.build(:user)
-    sign_in(@user_attr)
+    sign_in(user_attr)
     visit new_memo_path
   end
 

@@ -6,13 +6,13 @@ describe "Signing in" do
   before { visit signin_path }
   
   describe "With valid, case-insensitive information" do
+    let(:user_attr) { FactoryGirl.build(:user) }
+    let!(:user) { FactoryGirl.create(:user) }
+
     before do
-      @user = FactoryGirl.create(:user)
-      @user_attr = FactoryGirl.build(:user)
-      fill_in 'Username',   with: @user_attr.username.upcase
-      fill_in 'Password',   with: @user_attr.password
+      fill_in 'Username',   with: user_attr.username.upcase
+      fill_in 'Password',   with: user_attr.password
       click_button 'Sign in'
-      @user = User.find(@user.id)
     end
 
     it { should have_selector('div.success')}
@@ -23,13 +23,15 @@ describe "Signing in" do
     it { should_not have_link('Sign up') }
 
     describe "The user is remembered after he logs in" do
+      # @user variable needs to be reloaded first:
+      before { @user = User.find(user.id) }
       it { expect(@user.remember_me_token).not_to be_blank }
     end
 
     describe "User links" do
       it "Should have a Profile link that works" do
         click_link "Profile"
-        page.should have_title(full_title(@user_attr.username)) 
+        page.should have_title(full_title(user_attr.username)) 
       end
 
       it "Should have a Sign out link that works" do
