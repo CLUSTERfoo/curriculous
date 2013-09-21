@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130823180552) do
+ActiveRecord::Schema.define(version: 20130921183301) do
 
   create_table "memo_relationships", force: true do |t|
     t.integer "parent_memo_id", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20130823180552) do
     t.boolean  "admin",                        default: false
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.string   "display_name"
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
