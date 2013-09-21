@@ -21,8 +21,8 @@ describe "Browsing site as any visitor" do
   describe "User profile page" do
     before { visit user_path(user.username) }
 
-    it { should have_title(full_title(user.username)) }
-    it { should have_content(user.username.capitalize) }
+    it { should have_title(full_title(user.display_name)) }
+    it { should have_content(user.display_name) }
     it { should have_selector("div.memo") }
   end
 end

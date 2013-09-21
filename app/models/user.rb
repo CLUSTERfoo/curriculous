@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
+  after_validation { self.display_name = username }
   before_save { self.username = username.downcase }
 
   has_many :memos, dependent: :destroy

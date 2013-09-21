@@ -16,6 +16,7 @@ describe User do
   it { should respond_to(:replies) }
   it { should respond_to(:remember_me_token) }
   it { should respond_to(:remember_me_token_expires_at) }
+  it { should respond_to(:display_name) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -34,6 +35,14 @@ describe User do
       user_with_same_username.save
     end
     it { should_not be_valid }
+  end
+
+  describe "When username has variable casing" do
+    let(:user2) { FactoryGirl.create(:user, username: "Poo") }
+
+    specify "Display name should retain it" do
+      expect(user2.display_name).to eq "Poo"
+    end
   end
 
 

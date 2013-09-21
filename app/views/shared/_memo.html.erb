@@ -20,7 +20,7 @@
         <div class="memo-footer">
             <span class="small"><%= memo.created_at.strftime("%A, %B %d, %Y") %> 
                 (<%= time_ago_in_words(memo.created_at) %> ago)<br></span>
-            <span class="small">By: <%= link_to "#{ memo.user.username }", 
+            <span class="small">By: <%= link_to "#{ memo.user.display_name }", 
                 user_path(memo.user.username) %> | </span>    
 
             <span class="small">

@@ -31,7 +31,7 @@ describe "Signing in" do
     describe "User links" do
       it "Should have a Profile link that works" do
         click_link "Profile"
-        page.should have_title(full_title(user_attr.username)) 
+        page.should have_title(full_title(user.display_name)) 
       end
 
       it "Should have a Sign out link that works" do
